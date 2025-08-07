@@ -448,7 +448,7 @@
 
     // Uniforms (like your React version)
     let time = 0;
-    const speed = 6;
+    const speed = 5;
     const scale = 1;
     const rotation = 0;
     const noiseIntensity = 1.5;
@@ -508,7 +508,7 @@ function animate(timestamp) {
       }
 
       ctx.putImageData(img, 0, 0);
-      time += 0.05;
+      time += 0.01;
       requestAnimationFrame(animate);
     }
 
@@ -560,6 +560,7 @@ function animate(timestamp) {
     </footer>
 </body>
 </html>
+
 
 
 
