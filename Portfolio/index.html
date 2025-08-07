@@ -5,6 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Ahmad Abdullah | ML Engineer Portfolio</title>
+
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
 <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
@@ -393,10 +394,9 @@
                     TensorFlow
                   </div>
 <div class="flex flex-col items-center">
-  <img class="w-6 h-6 mb-1" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" />
-  Pandas
-</div>
-
+<img class="w-6 h-6 mb-1" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"/>
+                    Docker
+                  </div>
 <div class="flex flex-col items-center">
 <img class="w-6 h-6 mb-1" src="https://raw.githubusercontent.com/opencv/opencv/master/doc/logo/OpenCV_logo_no_text.png"/>
                     OpenCV
@@ -409,7 +409,7 @@
 <p class="text-base text-gray-400 leading-relaxed font-light">
                   I specialize in <span class="text-pink-400 font-medium">Computer Vision</span>,
                   <span class="text-indigo-400 font-medium">NLP</span>, and 
-                  <span class="text-cyan-400 font-medium">Scalable AI Systems</span>. My work translates research into optimized and robust solutions.
+                  <span class="text-cyan-400 font-medium">Scalable AI Systems</span>. My work translates research into optimized, robust solutions.
                 </p>
 </div>
 </div>
@@ -423,7 +423,7 @@
                 </p>
 <ul class="list-disc list-inside text-sm text-gray-400 space-y-1">
 <li><span class="text-blue-300">Education:</span> B.Tech CSE (AI Specialization)</li>
-<li><span class="text-blue-300">Experience:</span> 2+ years hands-on in applied ML + SaaS product development</li>
+<li><span class="text-blue-300">Experience:</span> 2+ years hands-on in applied ML + SaaS internships</li>
 <li><span class="text-blue-300">Vision:</span> Democratize AI for growth, learning, and well-being</li>
 </ul>
 </div>
@@ -509,29 +509,350 @@ function animate(timestamp) {
       }
 
       ctx.putImageData(img, 0, 0);
-      time += 0.01;
+      time += 0.0055;
       requestAnimationFrame(animate);
     }
 
     animate();
   </script>
-<section class="py-20 px-6 max-w-6xl mx-auto" id="projects">
-<h3 class="text-3xl font-bold mb-8 border-b border-gray-700 pb-2 animate-fade-line">Projects</h3>
-<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-<div class="glass-card p-6 rounded-xl animate-fade-line">
-<h4 class="text-xl font-semibold mb-2">X-Ray Diagnosis</h4>
-<p class="text-sm text-gray-300">Deep CNN for classifying pneumonia from X-ray images with over 95% accuracy.</p>
+  
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/dist/tailwind.min.css" rel="stylesheet">
+
+<style>
+  .letter {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+    display: inline-block;
+    margin-right: 1px;
+  }
+
+  .letter.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .highlighted {
+    color: #a1c4fd;
+    font-weight: 300;
+  }
+
+  .projects {
+    color: #c2e9fb;
+    font-weight: 700;
+  }
+
+  canvas#darkveil-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    display: block;
+  }
+
+  .card {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card::before {
+  content: "";
+  position: absolute;
+  top: var(--y);
+  left: var(--x);
+  width: 1000px;
+  height: 1000px;
+  background: radial-gradient(circle, rgb(153, 66, 240) 0%, transparent 20%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  opacity: 0;
+  z-index: 0;
+  filter: blur(25px); /* Optional for glow */
+}
+
+  .card:hover::before {
+    opacity: 0.5;
+    
+  }
+  </style>
+<div class="relative w-full bg-black overflow-hidden">
+<!-- Line background canvas -->
+<canvas id="darkveil-canvas" style="position:absolute; top:0; left:0; width:100%; height:100%;"></canvas>
+
+<section id="projects" class="relative z-10 w-full px-4 sm:px-8 py-24 scroll-mt-24 font-sans overflow-hidden">
+  <!-- Shader Background Canvas -->
+
+
+  <div class="max-w-7xl mx-auto relative z-10">
+    <!-- Animated Heading -->
+    <p id="animated-text" class="text-5xl sm:text-6xl leading-tight mb-16 tracking-tight font-google text-right"></p>
+
+    <!-- Projects Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4 max-w-7xl mx-auto text-white font-sans">
+
+  <!-- Card 1 -->
+  <div class="card group flex flex-col justify-between min-h-[200px] aspect-[4/3] p-5 rounded-2xl border-4 border-[#392e4e] bg-[#060010] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_#a855f7]">
+    <div class="relative z-10 mb-3">
+      <h3 class="text-lg font-semibold">AI-Driven Insights</h3>
+      <h4 class="text-sm font-medium text-purple-300">Learning Analytics</h4>
+    </div>
+    <p class="text-sm leading-relaxed opacity-90 relative z-10">
+      Designed deep learning models to analyze engagement, flag struggling students, and support personalized content delivery in EduSyncAI.
+    </p>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="card group flex flex-col justify-between min-h-[200px] aspect-[4/3] p-5 rounded-2xl border-4 border-[#392e4e] bg-[#060010] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_#a855f7]">
+    <div class="relative z-10 mb-3">
+      <h3 class="text-lg font-semibold">Smart Automation</h3>
+      <h4 class="text-sm font-medium text-purple-300">Assignment Grading</h4>
+    </div>
+    <p class="text-sm leading-relaxed opacity-90 relative z-10">
+      Built NLP and vision models for automatic grading and feedback generation, reducing teacher workload by over 60%.
+    </p>
+  </div>
+
+  <!-- Card 3 (Double Size) -->
+  <div class="card group flex flex-col justify-between lg:col-span-2 lg:row-span-2 min-h-[200px] aspect-[4/3] p-6 rounded-2xl border-4 border-[#392e4e] bg-gradient-to-br from-[#0b001f] to-[#060010] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_#a855f7]">
+    <div class="relative z-10 mb-3">
+      <h3 class="text-lg font-semibold">Founder — EduSyncAI</h3>
+      <h4 class="text-sm font-medium text-purple-300">Google-Classroom Enhanced</h4>
+    </div>
+    <p class="text-sm leading-relaxed opacity-90 relative z-10">
+      Conceptualized and launched EduSyncAI — an AI-first classroom platform with integrated automation, smart scheduling, and adaptive learning features, reducing digital fatigue and boosting productivity for students and educators alike.
+    </p>
+  </div>
+
+  <!-- Card 4 (Double Size) -->
+  <div class="card group flex flex-col justify-between lg:col-span-2 lg:row-span-2 min-h-[200px] aspect-[4/3] p-6 rounded-2xl border-4 border-[#392e4e] bg-gradient-to-br from-[#0b001f] to-[#060010] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_#a855f7]">
+    <div class="relative z-10 mb-3">
+      <h3 class="text-lg font-semibold">Scalable Architecture</h3>
+      <h4 class="text-sm font-medium text-purple-300">Cloud-Based AI Platform</h4>
+    </div>
+    <p class="text-sm leading-relaxed opacity-90 relative z-10">
+      Engineered a scalable backend integrating fastAPI, Firebase, and TensorFlow models — enabling real-time recommendations, class summaries, and voice-command navigation across classrooms.
+    </p>
+  </div>
+
+  <!-- Card 5 -->
+  <div class="card group flex flex-col justify-between min-h-[200px] aspect-[4/3] p-5 rounded-2xl border-4 border-[#392e4e] bg-[#060010] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_#a855f7]">
+    <div class="relative z-10 mb-3">
+      <h3 class="text-lg font-semibold">Smart Scheduling</h3>
+      <h4 class="text-sm font-medium text-purple-300">AI Timetable Suggestions</h4>
+    </div>
+    <p class="text-sm leading-relaxed opacity-90 relative z-10">
+      Developed an AI planner to recommend optimal class times and break durations using behavioral and cognitive load analysis.
+    </p>
+  </div>
+
+  <!-- Card 6 -->
+  <div class="card group flex flex-col justify-between min-h-[200px] aspect-[4/3] p-5 rounded-2xl border-4 border-[#392e4e] bg-[#060010] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_#a855f7]">
+    <div class="relative z-10 mb-3">
+      <h3 class="text-lg font-semibold">Data Security</h3>
+      <h4 class="text-sm font-medium text-purple-300">User Trust</h4>
+    </div>
+    <p class="text-sm leading-relaxed opacity-90 relative z-10">
+      Implemented encrypted student records, RBAC, audit logs, and facial login detection to ensure compliance and safety.
+    </p>
+  </div>
+
 </div>
-<div class="glass-card p-6 rounded-xl animate-fade-line delay-[200ms]">
-<h4 class="text-xl font-semibold mb-2">Stock Forecasting</h4>
-<p class="text-sm text-gray-300">LSTM networks for financial time series prediction using historical market data.</p>
-</div>
-<div class="glass-card p-6 rounded-xl animate-fade-line delay-[400ms]">
-<h4 class="text-xl font-semibold mb-2">Resume Classifier</h4>
-<p class="text-sm text-gray-300">NLP-powered classifier using TF-IDF + Random Forest to automate resume screening.</p>
-</div>
-</div>
+
+
+  </div>
 </section>
+</div>\
+<script>
+  const cards = document.querySelectorAll('.card');
+
+  cards.forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--x', `${x}px`);
+      card.style.setProperty('--y', `${y}px`);
+    });
+  });
+</script>
+
+<!-- OGL Shader Background Script -->
+<!-- Tailwind already loaded -->
+<script src="https://cdn.jsdelivr.net/npm/ogl@0.0.48/dist/ogl.umd.js"></script>
+
+<script type="module">
+  import { Renderer, Program, Mesh, Triangle, Vec2 } from 'https://cdn.skypack.dev/ogl';
+
+  const canvas = document.getElementById('darkveil-canvas');
+  const parent = canvas.parentElement;
+
+  const vertex = `
+    attribute vec2 position;
+    void main() {
+      gl_Position = vec4(position, 0.0, 1.0);
+    }
+  `;
+
+  const fragment = `
+    precision mediump float;
+    uniform vec2 uResolution;
+    uniform float uTime;
+    uniform float uHueShift;
+    uniform float uNoise;
+    uniform float uScan;
+    uniform float uScanFreq;
+    uniform float uWarp;
+
+    float rand(vec2 c) {
+      return fract(sin(dot(c ,vec2(12.9898,78.233))) * 43758.5453);
+    }
+
+    vec3 hueShift(vec3 color, float shift) {
+      const mat3 toYIQ = mat3(
+        0.299,     0.587,     0.114,
+        0.596,    -0.274,    -0.322,
+        0.211,    -0.523,     0.312
+      );
+      const mat3 toRGB = mat3(
+        1.0,      0.956,      0.621,
+        1.0,     -0.272,     -0.647,
+        1.0,     -1.106,      1.703
+      );
+
+      vec3 yiq = toYIQ * color;
+      float hue = atan(yiq.z, yiq.y) + shift;
+      float chroma = sqrt(yiq.y * yiq.y + yiq.z * yiq.z);
+      yiq.y = chroma * cos(hue);
+      yiq.z = chroma * sin(hue);
+      return toRGB * yiq;
+    }
+
+    void main() {
+      vec2 uv = gl_FragCoord.xy / uResolution.xy;
+      vec2 p = uv * 2.0 - 1.0;
+      p.x *= uResolution.x / uResolution.y;
+
+      // Wave warp
+      float warpX = sin(p.y * 10.0 + uTime * 1.5) * 0.02;
+      float warpY = cos(p.x * 10.0 + uTime * 1.5) * 0.02;
+      p += vec2(warpX, warpY) * uWarp;
+
+      // Base color
+      vec3 col = vec3(0.1 + 0.2 * sin(p.x * 5.0 + uTime), 0.1 + 0.2 * cos(p.y * 5.0 + uTime), 0.2);
+
+      // Scanline effect
+      float scanline = sin(gl_FragCoord.y * uScanFreq + uTime * 5.0) * 0.5 + 0.5;
+      col *= mix(1.0, scanline, uScan);
+
+      // Apply noise
+      col += (rand(gl_FragCoord.xy + uTime) - 0.5) * uNoise;
+
+      // Hue shift
+      col = hueShift(col, uHueShift);
+
+      gl_FragColor = vec4(clamp(col, 0.0, 1.0), 1.0);
+    }
+  `;
+
+  const renderer = new Renderer({ dpr: Math.min(window.devicePixelRatio, 2), canvas });
+  const gl = renderer.gl;
+
+  const geometry = new Triangle(gl);
+  const program = new Program(gl, {
+    vertex,
+    fragment,
+    uniforms: {
+      uTime: { value: 0 },
+      uResolution: { value: new Vec2() },
+      uHueShift: { value: 0.5 },
+      uNoise: { value: 0.1 },
+      uScan: { value: 0.3 },
+      uScanFreq: { value: 40.0 },
+      uWarp: { value: 0.25 }
+    }
+  });
+
+  const mesh = new Mesh(gl, { geometry, program });
+
+  function resize() {
+    const width = parent.offsetWidth;
+    const height = parent.offsetHeight;
+    renderer.setSize(width, height);
+    program.uniforms.uResolution.value.set(width, height);
+  }
+
+  window.addEventListener("resize", resize);
+  resize();
+
+  const start = performance.now();
+  function render() {
+    program.uniforms.uTime.value = (performance.now() - start) / 1000;
+    renderer.render({ scene: mesh });
+    requestAnimationFrame(render);
+  }
+
+  render();
+</script>
+
+
+
+
+
+
+
+
+  <!-- Animated Text Script -->
+  
+  <script>
+  const text = "Highlighted Projects ✦";
+  const container = document.getElementById("animated-text");
+
+  // Word styles
+  const wordStyles = {
+    Highlighted: "highlighted",
+    Projects: "projects ✦",
+    "✦": "projects"
+  };
+
+  text.split(" ").forEach((word, wordIndex) => {
+    const wordSpan = document.createElement("span");
+    wordSpan.className = wordStyles[word] || "";
+    wordSpan.style.display = "inline-block";
+    wordSpan.style.marginRight = "8px"; // space between words
+
+    word.split("").forEach((char, charIndex) => {
+      const span = document.createElement("span");
+      span.textContent = char;
+      span.className = "letter";
+      span.style.transitionDelay = `${(wordIndex * 8 + charIndex) * 20}ms`;
+      wordSpan.appendChild(span);
+    });
+
+    container.appendChild(wordSpan);
+  });
+
+  // Scroll observer
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: "-100px",
+  });
+
+  document.querySelectorAll(".letter").forEach(letter => observer.observe(letter));
+</script>
+
+
+
+
+
 <section class="py-20 px-6 max-w-5xl mx-auto animate-fade-line" id="skills">
 <h3 class="text-3xl font-bold mb-6 border-b border-gray-700 pb-2">Skills</h3>
 <div class="flex flex-wrap gap-3 text-sm">
@@ -561,9 +882,3 @@ function animate(timestamp) {
     </footer>
 </body>
 </html>
-
-
-
-
-
-
