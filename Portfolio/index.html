@@ -304,7 +304,7 @@
 </div>
 <!-- RIGHT: Portrait Image -->
 <div class="mt-10 md:mt-0 -ml-6 relative z-10 hidden md:block">
-<div class="w-72 h-96 rounded-[24px] overflow-hidden border-2 border-blue-900/30 shadow-lg backdrop-blur-lg">
+<div class="w-72 h-96 rounded-[24px] overflow-hidden border-4 border-blue-900/30 shadow-lg backdrop-blur-lg">
 <img alt="Ahmad Abdullah" class="object-cover w-full h-full" src="assests/ceo.jpg"/>
 </div>
 </div>
@@ -345,6 +345,64 @@
 
   document.addEventListener("DOMContentLoaded", typeEffect);
     </script>
+    <script>
+      function animateHeadings() {
+        const headings = document.querySelectorAll("[data-animate-heading]");
+    
+        headings.forEach(container => {
+          const text = container.getAttribute("data-animate-heading");
+          const highlightMap = container.getAttribute("data-highlight");
+    
+          // Parse highlight styles
+          let wordStyles = {};
+          if (highlightMap) {
+            try {
+              wordStyles = JSON.parse(highlightMap);
+            } catch (e) {
+              console.warn("Invalid JSON in data-highlight:", highlightMap);
+            }
+          }
+    
+          container.innerHTML = ""; // Clear existing content
+    
+          text.split(" ").forEach((word, wordIndex) => {
+            const wordSpan = document.createElement("span");
+            wordSpan.className = wordStyles[word] || "";
+            wordSpan.style.display = "inline-block";
+            wordSpan.style.marginRight = "8px"; // space between words
+    
+            word.split("").forEach((char, charIndex) => {
+              const span = document.createElement("span");
+              span.textContent = char;
+              span.className = "letter";
+              span.style.transitionDelay = `${(wordIndex * 8 + charIndex) * 20}ms`;
+              wordSpan.appendChild(span);
+            });
+    
+            container.appendChild(wordSpan);
+          });
+        });
+    
+        // Intersection observer for animation on scroll
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              obs.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.1,
+          rootMargin: "-100px",
+        });
+    
+        document.querySelectorAll(".letter").forEach(letter => observer.observe(letter));
+      }
+    
+      // Run on load
+      window.addEventListener("DOMContentLoaded", animateHeadings);
+    </script>
+    
 <div class="relative w-full bg-black overflow-hidden">
 <!-- Line background canvas -->
 <canvas class="absolute inset-0 w-full h-full z-0 pointer-events-none" id="silkCanvas"></canvas>
@@ -453,7 +511,8 @@
     const scale = 1;
     const rotation = 0;
     const noiseIntensity = 1.5;
-    const color = [20, 40, 120]; // Hex: #142878
+    const color = [80, 0, 160]; // Dark Neon Purple with Blue Tint
+ // Hex: #142878
  // Hex #7B7481
 
     // Helper: Rotate UVs
@@ -542,13 +601,12 @@ function animate(timestamp) {
     font-weight: 700;
   }
 
-  canvas#darkveil-canvas {
+  #spotlight-canvas {
+    z-index: 0;
     position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    display: block;
+    top: 0;
+    left: 0;
+    pointer-events: none;
   }
 
   .card {
@@ -577,10 +635,28 @@ function animate(timestamp) {
     
   }
   </style>
-<div class="relative w-full bg-black overflow-hidden">
-<!-- Line background canvas -->
-<canvas id="darkveil-canvas" style="position:absolute; top:0; left:0; width:100%; height:100%;"></canvas>
-
+  <div class="relative w-full bg-black overflow-hidden">
+    <div class="absolute inset-0 z-0 pointer-events-none">
+      <div 
+        class="w-full h-full"
+        style="
+          background:
+            radial-gradient(circle at center, rgba(168,85,247,0.3) 0%, rgba(59,130,246,0.15) 40%, rgba(0,0,0,0.05) 70%, rgba(0,0,0,0) 100%),
+            linear-gradient(to right, rgba(168,85,247,0.08) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(59,130,246,0.08) 1px, transparent 1px);
+          background-size: 60px 60px;
+          mask-image: radial-gradient(circle at center, black 20%, transparent 100%);
+          -webkit-mask-image: radial-gradient(circle at center, black 20%, transparent 100%);
+          mix-blend-mode: overlay;
+          opacity: 0.6;
+        ">
+      </div>
+    </div>
+    
+    <!-- Spotlight -->
+    <canvas id="spotlight-canvas" class="absolute top-0 left-0 w-full h-full z-0 pointer-events-none"></canvas>
+  
+  
 <section id="projects" class="relative z-10 w-full px-4 sm:px-8 py-24 scroll-mt-24 font-sans overflow-hidden">
   <!-- Shader Background Canvas -->
 
@@ -663,7 +739,7 @@ function animate(timestamp) {
 
   </div>
 </section>
-</div>\
+</div>
 <script>
   const cards = document.querySelectorAll('.card');
 
@@ -682,119 +758,8 @@ function animate(timestamp) {
 <!-- Tailwind already loaded -->
 <script src="https://cdn.jsdelivr.net/npm/ogl@0.0.48/dist/ogl.umd.js"></script>
 
-<script type="module">
-  import { Renderer, Program, Mesh, Triangle, Vec2 } from 'https://cdn.skypack.dev/ogl';
 
-  const canvas = document.getElementById('darkveil-canvas');
-  const parent = canvas.parentElement;
 
-  const vertex = `
-    attribute vec2 position;
-    void main() {
-      gl_Position = vec4(position, 0.0, 1.0);
-    }
-  `;
-
-  const fragment = `
-    precision mediump float;
-    uniform vec2 uResolution;
-    uniform float uTime;
-    uniform float uHueShift;
-    uniform float uNoise;
-    uniform float uScan;
-    uniform float uScanFreq;
-    uniform float uWarp;
-
-    float rand(vec2 c) {
-      return fract(sin(dot(c ,vec2(12.9898,78.233))) * 43758.5453);
-    }
-
-    vec3 hueShift(vec3 color, float shift) {
-      const mat3 toYIQ = mat3(
-        0.299,     0.587,     0.114,
-        0.596,    -0.274,    -0.322,
-        0.211,    -0.523,     0.312
-      );
-      const mat3 toRGB = mat3(
-        1.0,      0.956,      0.621,
-        1.0,     -0.272,     -0.647,
-        1.0,     -1.106,      1.703
-      );
-
-      vec3 yiq = toYIQ * color;
-      float hue = atan(yiq.z, yiq.y) + shift;
-      float chroma = sqrt(yiq.y * yiq.y + yiq.z * yiq.z);
-      yiq.y = chroma * cos(hue);
-      yiq.z = chroma * sin(hue);
-      return toRGB * yiq;
-    }
-
-    void main() {
-      vec2 uv = gl_FragCoord.xy / uResolution.xy;
-      vec2 p = uv * 2.0 - 1.0;
-      p.x *= uResolution.x / uResolution.y;
-
-      // Wave warp
-      float warpX = sin(p.y * 10.0 + uTime * 1.5) * 0.02;
-      float warpY = cos(p.x * 10.0 + uTime * 1.5) * 0.02;
-      p += vec2(warpX, warpY) * uWarp;
-
-      // Base color
-      vec3 col = vec3(0.1 + 0.2 * sin(p.x * 5.0 + uTime), 0.1 + 0.2 * cos(p.y * 5.0 + uTime), 0.2);
-
-      // Scanline effect
-      float scanline = sin(gl_FragCoord.y * uScanFreq + uTime * 5.0) * 0.5 + 0.5;
-      col *= mix(1.0, scanline, uScan);
-
-      // Apply noise
-      col += (rand(gl_FragCoord.xy + uTime) - 0.5) * uNoise;
-
-      // Hue shift
-      col = hueShift(col, uHueShift);
-
-      gl_FragColor = vec4(clamp(col, 0.0, 1.0), 1.0);
-    }
-  `;
-
-  const renderer = new Renderer({ dpr: Math.min(window.devicePixelRatio, 2), canvas });
-  const gl = renderer.gl;
-
-  const geometry = new Triangle(gl);
-  const program = new Program(gl, {
-    vertex,
-    fragment,
-    uniforms: {
-      uTime: { value: 0 },
-      uResolution: { value: new Vec2() },
-      uHueShift: { value: 0.5 },
-      uNoise: { value: 0.1 },
-      uScan: { value: 0.3 },
-      uScanFreq: { value: 40.0 },
-      uWarp: { value: 0.25 }
-    }
-  });
-
-  const mesh = new Mesh(gl, { geometry, program });
-
-  function resize() {
-    const width = parent.offsetWidth;
-    const height = parent.offsetHeight;
-    renderer.setSize(width, height);
-    program.uniforms.uResolution.value.set(width, height);
-  }
-
-  window.addEventListener("resize", resize);
-  resize();
-
-  const start = performance.now();
-  function render() {
-    program.uniforms.uTime.value = (performance.now() - start) / 1000;
-    renderer.render({ scene: mesh });
-    requestAnimationFrame(render);
-  }
-
-  render();
-</script>
 
 
 
@@ -849,36 +814,435 @@ function animate(timestamp) {
   document.querySelectorAll(".letter").forEach(letter => observer.observe(letter));
 </script>
 
+<style>.card::before {
+  content: "";
+  position: absolute;
+  top: var(--y);
+  left: var(--x);
+  width: 1000px;
+  height: 1000px;
+  background: radial-gradient(circle, #a855f7 0%, transparent 25%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+  filter: blur(25px);
+}
+.card:hover::before {
+  opacity: 0.4;
+}
+
+</style>
+<script>
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--x', `${x}px`);
+      card.style.setProperty('--y', `${y}px`);
+    });
+  });
+</script>
+<script>
+  const canvas = document.getElementById("skills-bg");
+  const ctx = canvas.getContext("2d");
+  
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resizeCanvas();
+  window.addEventListener("resize", resizeCanvas);
+  
+  const stars = Array.from({ length: 150 }, () => ({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 1.2 + 0.3,
+    d: Math.random() * 0.5 + 0.2
+  }));
+  
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    stars.forEach(star => {
+      ctx.beginPath();
+      ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+      ctx.fillStyle = "rgba(255,255,255,0.7)";
+      ctx.fill();
+      star.y += star.d;
+      if (star.y > canvas.height) {
+        star.y = 0;
+        star.x = Math.random() * canvas.width;
+      }
+    });
+    requestAnimationFrame(animate);
+  }
+  animate();
+  </script>
+  <style>
+    .bg-aurora-gradient {
+      background-image: radial-gradient(circle at 30% 70%, #93c5fd, #7c3aed, #312e81, #a78bfa, #1e3a8a);
+      background-size: 600% 600%;
+      background-position: center;
+    }
+    
+    @keyframes gradient-flow {
+      0% {
+        background-position: 0% 50%;
+      }
+      25% {
+        background-position: 50% 25%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      75% {
+        background-position: 50% 75%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+    
+    .animate-gradient-flow {
+      animation: gradient-flow 15s ease-in-out infinite;
+    }
+    @keyframes fade-in-up {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .animate-fade-in-up {
+      animation: fade-in-up 1s ease-out both;
+    }
+    
+    .animate-fade-in-up.delay-200 {
+      animation-delay: 0.2s;
+    }
+    
+    .animate-gradient-flow {
+      background-size: 400% 400%;
+      animation: gradientFlow 8s ease infinite;
+    }
+    
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    .bg-aurora-gradient {
+      background-image: radial-gradient(circle at top left, #5b2eff, #7a33ff, #aa55ff, #5f1fff);
+    }
+    
+    .glow-icon {
+      text-shadow: 0 0 10px rgba(138, 77, 255, 0.7);
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    
+    .animate-marquee {
+      display: flex;
+      animation: marquee 10s linear infinite;
+    }
+    </style>
+    
+    
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const canvas = document.createElement("canvas");
+        canvas.style.cssText = "position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0";
+        document.querySelector("#skills").prepend(canvas);
+    
+        const ctx = canvas.getContext("2d");
+        let width, height, dots = [], dpr = window.devicePixelRatio || 1;
+        const dotSize = 6, gap = 22, proximity = 120, liftStrength = 6;
+    
+        function hexToRgb(hex) {
+          const res = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+          return res ? {
+            r: parseInt(res[1], 16),
+            g: parseInt(res[2], 16),
+            b: parseInt(res[3], 16)
+          } : { r: 0, g: 0, b: 0 };
+        }
+    
+        const base = hexToRgb("#444444");
+        const active = hexToRgb("#8f5fff");
+    
+        function resize() {
+          width = canvas.width = window.innerWidth * dpr;
+          height = canvas.height = document.querySelector("#skills").offsetHeight * dpr;
+          canvas.style.width = window.innerWidth + "px";
+          canvas.style.height = document.querySelector("#skills").offsetHeight + "px";
+          ctx.setTransform(1, 0, 0, 1, 0, 0);
+          ctx.scale(dpr, dpr);
+          buildGrid();
+        }
+    
+        function buildGrid() {
+          dots = [];
+          const cols = Math.floor(width / dpr / (dotSize + gap));
+          const rows = Math.floor(height / dpr / (dotSize + gap));
+          const offsetX = (width / dpr - (cols - 1) * (dotSize + gap)) / 2;
+          const offsetY = (height / dpr - (rows - 1) * (dotSize + gap)) / 2;
+          for (let y = 0; y < rows; y++) {
+            for (let x = 0; x < cols; x++) {
+              dots.push({
+                x: offsetX + x * (dotSize + gap),
+                y: offsetY + y * (dotSize + gap),
+                dx: 0,
+                dy: 0
+              });
+            }
+          }
+        }
+    
+        let mouseX = -9999, mouseY = -9999;
+        document.addEventListener("mousemove", e => {
+          const rect = canvas.getBoundingClientRect();
+          mouseX = (e.clientX - rect.left);
+          mouseY = (e.clientY - rect.top);
+        });
+    
+        function animate() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+          const centerX = width / (2 * dpr);
+          const centerY = height / (2 * dpr);
+          const maxDist = Math.sqrt(centerX ** 2 + centerY ** 2);
+    
+          for (const dot of dots) {
+            const dx = dot.x - mouseX;
+            const dy = dot.y - mouseY;
+            const distSq = dx * dx + dy * dy;
+            const dist = Math.sqrt(distSq);
+    
+            // Smooth lift within hover range (don't push out)
+            if (dist < proximity) {
+              const t = 1 - dist / proximity;
+              const lift = t * liftStrength;
+              dot.dx = dx / dist * lift * -1;
+              dot.dy = dy / dist * lift * -1;
+            } else {
+              // Ease back to origin
+              dot.dx *= 0.9;
+              dot.dy *= 0.9;
+            }
+    
+            const drawX = dot.x + dot.dx;
+            const drawY = dot.y + dot.dy;
+    
+            // Color interpolation (hover glow)
+            let color = base;
+            if (dist < proximity) {
+              const t = 1 - dist / proximity;
+              color = {
+                r: Math.round(base.r + (active.r - base.r) * t),
+                g: Math.round(base.g + (active.g - base.g) * t),
+                b: Math.round(base.b + (active.b - base.b) * t),
+              };
+            }
+    
+            // Radial edge fade (opacity)
+            const distFromCenter = Math.sqrt((drawX - centerX) ** 2 + (drawY - centerY) ** 2);
+            const fadeFactor = Math.pow(1 - Math.min(distFromCenter / maxDist, 1), 2);
+    
+            ctx.beginPath();
+            ctx.arc(drawX, drawY, dotSize / 2, 0, 2 * Math.PI);
+            ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${fadeFactor.toFixed(3)})`;
+            ctx.fill();
+          }
+    
+          requestAnimationFrame(animate);
+        }
+    
+        resize();
+        animate();
+        window.addEventListener("resize", resize);
+      });
+    </script>
+    
+      
+      
+    <div class="relative w-full overflow-hidden">
+      <!-- Canvas Background -->
+      <canvas id="canvas" class="absolute inset-0 w-full h-full pointer-events-none z-0"></canvas>
+    
+      <!-- Skills Section -->
+      <section id="skills" class="relative z-10 w-full px-6 sm:px-10 py-24 scroll-mt-24 font-sans bg-[#01010a]">
+    
+        <!-- Title with Glow -->
+        <div class="relative z-20 ml-20 mb-16 animate-fade-in-up">
+          <h2 class="text-left text-4xl sm:text-6xl leading-tight tracking-tight font-google relative">
+            <span class="inline-block text-blue-300 font-light">Specialized</span>
+            <span class="inline-block px-1.5 py-0.5 rounded text-transparent bg-clip-text font-bold animate-gradient-flow bg-aurora-gradient">
+              Proficiencies
+            </span>
+            <span class="inline-block px-1.5 py-0.5 rounded text-blue-400 bg-clip-text font-bold glow-icon">
+              ◈
+            </span>
+            <span class="absolute top-0 left-0 w-full h-full rounded blur-3xl opacity-10 bg-purple-500 -z-10"></span>
+          </h2>
+        </div>
+    
+        <!-- Skills Grid -->
+        <div class="absolute inset-0 z-0 pointer-events-none"></div>
+
+  <!-- Scrolling Container -->
+  <div class="animate-marquee whitespace-nowrap flex gap-20 items-center px-4">
+    <!-- Repeat Skill Set TWICE for Seamless Scrolling -->
+    <!-- Start of Skill Set -->
+    <template id="skill-icons">
+      <div class="flex flex-col items-center text-white font-medium tracking-wide">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="w-14 h-14 mb-2">
+        <span class="text-sm">Python</span>
+      </div>
+
+      <div class="flex flex-col items-center text-white font-medium tracking-wide">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch" class="w-14 h-14 mb-2">
+        <span class="text-sm">PyTorch</span>
+      </div>
+
+      <div class="flex flex-col items-center text-white font-medium tracking-wide">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" class="w-14 h-14 mb-2">
+        <span class="text-sm">TensorFlow</span>
+      </div>
+
+      <div class="flex flex-col items-center text-white font-medium tracking-wide">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" alt="NumPy" class="w-14 h-14 mb-2">
+        <span class="text-sm">NumPy</span>
+      </div>
+
+      <div class="flex flex-col items-center text-white font-medium tracking-wide">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django" class="w-14 h-14 mb-2 invert">
+        <span class="text-sm">Django</span>
+      </div>
+
+      <div class="flex flex-col items-center text-white font-medium tracking-wide">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" alt="OpenCV" class="w-14 h-14 mb-2">
+        <span class="text-sm">OpenCV</span>
+      </div>
+
+      <div class="flex flex-col items-center text-white font-medium tracking-wide">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="Scikit-Learn" class="w-14 h-14 mb-2">
+        <span class="text-sm">Scikit-Learn</span>
+      </div>
+
+      <div class="flex flex-col items-center text-white font-medium tracking-wide">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="Pandas" class="w-14 h-14 mb-2">
+        <span class="text-sm">Pandas</span>
+      </div>
+    </template>
+
+    <!-- Render Template Twice -->
+    <div class="flex gap-20" id="scroll-set-1"></div>
+    <div class="flex gap-20" id="scroll-set-2"></div>
+  </div>
+        
+    
+      </section>
+    </div>
+    <script>
+      const template = document.getElementById("skill-icons");
+      const set1 = document.getElementById("scroll-set-1");
+      const set2 = document.getElementById("scroll-set-2");
+    
+      for (let i = 0; i < template.content.children.length; i++) {
+        set1.appendChild(template.content.children[i].cloneNode(true));
+        set2.appendChild(template.content.children[i].cloneNode(true));
+      }
+    </script>
+    
+    
 
 
+    <style>
+      @keyframes pulse-slow {
+        0%, 100% {
+          opacity: 0.3;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.6;
+          transform: scale(1.1);
+        }
+      }
+      .animate-pulse-slow {
+        animation: pulse-slow 6s ease-in-out infinite;
+      }
+    </style>
+    
+<!-- Connect With Me Section -->
+<section id="contact" class="relative py-28 px-6 sm:px-10 font-sans bg-[#01010a] overflow-hidden">
+  <!-- Neon Glow Left -->
+  <div class="absolute top-0 left-4 w-[1000px] h-[1000px] bg-gradient-to-br from-purple-500 via-blue-900 to-blue-500 rounded-full blur-[160px] opacity-40 animate-pulse-slow z-0"></div>
 
+  <!-- Content -->
+  <div class="max-w-7xl mx-auto relative z-10">
+    <!-- Title -->
+    <h3 class="text-4xl font-bold mb-12 text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-purple-400 to-pink-500 tracking-tight text-right sm:text-right">
+      Connect with Me
+    </h3>
 
-<section class="py-20 px-6 max-w-5xl mx-auto animate-fade-line" id="skills">
-<h3 class="text-3xl font-bold mb-6 border-b border-gray-700 pb-2">Skills</h3>
-<div class="flex flex-wrap gap-3 text-sm">
-<span class="bg-blue-900/40 px-4 py-2 rounded-full">Python</span>
-<span class="bg-blue-900/40 px-4 py-2 rounded-full">PyTorch</span>
-<span class="bg-blue-900/40 px-4 py-2 rounded-full">TensorFlow</span>
-<span class="bg-blue-900/40 px-4 py-2 rounded-full">Scikit-Learn</span>
-<span class="bg-blue-900/40 px-4 py-2 rounded-full">Pandas</span>
-<span class="bg-blue-900/40 px-4 py-2 rounded-full">FastAPI</span>
-<span class="bg-blue-900/40 px-4 py-2 rounded-full">Docker</span>
-<span class="bg-blue-900/40 px-4 py-2 rounded-full">MLOps</span>
-</div>
+    <!-- Social Links Horizontal -->
+    <div class="flex flex-wrap justify-center sm:justify-end items-center gap-10">
+      <a href="https://github.com/Neon01602" target="_blank" class="group flex items-center gap-2 text-white hover:text-purple-300 transition duration-300">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="w-6 h-6 grayscale group-hover:grayscale-0 transition" alt="GitHub">
+        <span class="text-base font-medium ">GitHub</span>
+      </a>
+
+      <a href="https://www.linkedin.com/in/ahmad-abdullah-5a93ab2a1" target="_blank" class="group flex items-center gap-2 text-white hover:text-blue-400 transition duration-300">
+        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" class="w-6 h-6 grayscale group-hover:grayscale-0 transition" alt="LinkedIn">
+        <span class="text-base font-medium ">LinkedIn</span>
+      </a>
+
+      <a href="https://twitter.com/ag18fr" target="_blank" class="group flex items-center gap-2 text-white hover:text-sky-400 transition duration-300">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" class="w-6 h-6 grayscale group-hover:grayscale-0 transition" alt="Twitter">
+        <span class="text-base font-medium ">Twitter</span>
+      </a>
+
+      <a href="https://instagram.com/ag.19fr" target="_blank" class="group flex items-center gap-2 text-white hover:text-pink-400 transition duration-300">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" class="w-6 h-6 grayscale group-hover:grayscale-0 transition" alt="Instagram">
+        <span class="text-base font-medium ">Instagram</span>
+      </a>
+
+      <a href="mailto:ahmadabdullah007860@gmail.com" class="group flex items-center gap-2 text-white hover:text-rose-300 transition duration-300">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" class="w-6 h-6 grayscale group-hover:grayscale-0 transition" alt="Gmail">
+        <span class="text-base font-medium ">Email</span>
+      </a>
+    </div>
+  </div>
 </section>
-<section class="py-20 px-6 max-w-5xl mx-auto animate-fade-line" id="contact">
-<h3 class="text-3xl font-bold mb-6 border-b border-gray-700 pb-2">Contact</h3>
-<form class="grid gap-4">
-<input class="bg-gray-800 border border-gray-600 p-3 rounded-md" placeholder="Name" type="text"/>
-<input class="bg-gray-800 border border-gray-600 p-3 rounded-md" placeholder="Email" type="email"/>
-<textarea class="bg-gray-800 border border-gray-600 p-3 rounded-md" placeholder="Message" rows="4"></textarea>
-<button class="bg-secondary hover:bg-purple-700 text-white px-6 py-3 rounded-button transition" type="submit">
-          Send Message
-        </button>
-</form>
-</section>
-<footer class="text-center py-6 text-gray-500 text-sm">
-      © 2025 Ahmad Abdullah — Built with ❤️ using TailwindCSS
-    </footer>
+
+
+
+
+<!-- Footer -->
+<footer class="relative bg-[#0d0d1a] py-6 px-4 border-t border-white/10 text-gray-400 text-[13px] tracking-tight font-light">
+  <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-6">
+    
+    <!-- Copyright -->
+    <div class="text-center sm:text-center">
+      © 2025 <span class="text-white font-semibold tracking-normal">Ahmad Abdullah</span>. All rights reserved.
+    </div>
+    
+    <!-- Navigation Links -->
+    
+    
+  </div>
+</footer>
+
+
 </body>
 </html>
