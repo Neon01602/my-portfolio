@@ -1088,16 +1088,15 @@ function animate(timestamp) {
       
       
     <div class="relative w-full overflow-hidden">
-    <div class="relative w-full overflow-hidden">
   <!-- Canvas Background -->
   <canvas id="canvas" class="absolute inset-0 w-full h-full pointer-events-none z-0"></canvas>
 
   <!-- Skills Section -->
-  <section id="skills" class="relative z-10 w-full px-4 sm:px-10 py-16 sm:py-24 scroll-mt-24 font-sans bg-[#01010a]">
+  <section id="skills" class="relative z-10 w-full px-4 sm:px-10 py-24 scroll-mt-24 font-sans bg-[#01010a]">
 
     <!-- Title with Glow -->
-    <div class="relative z-20 mb-10 sm:ml-20 sm:mb-16 animate-fade-in-up text-center sm:text-left">
-      <h2 class="text-3xl sm:text-6xl leading-tight tracking-tight font-google relative">
+    <div class="relative z-20 sm:ml-20 mb-10 sm:mb-16 animate-fade-in-up text-center sm:text-left">
+      <h2 class="text-4xl sm:text-6xl leading-tight tracking-tight font-google relative">
         <span class="inline-block text-blue-300 font-light">Specialized</span>
         <span class="inline-block px-1.5 py-0.5 rounded text-transparent bg-clip-text font-bold animate-gradient-flow bg-aurora-gradient">
           Proficiencies
@@ -1109,54 +1108,54 @@ function animate(timestamp) {
       </h2>
     </div>
 
-    <!-- Skills Grid -->
+    <!-- Skills Grid Background -->
     <div class="absolute inset-0 z-0 pointer-events-none"></div>
 
     <!-- Scrolling Container -->
-    <div class="animate-marquee whitespace-nowrap flex gap-10 sm:gap-20 items-center px-2 sm:px-4 overflow-x-auto sm:overflow-x-hidden scrollbar-hide">
+    <div class="animate-marquee whitespace-nowrap flex gap-10 sm:gap-20 items-center px-2 sm:px-4">
       <!-- Render Template Twice -->
-      <div class="flex gap-10 sm:gap-20 flex-shrink-0" id="scroll-set-1"></div>
-      <div class="flex gap-10 sm:gap-20 flex-shrink-0" id="scroll-set-2"></div>
+      <div class="flex gap-10 sm:gap-20" id="scroll-set-1"></div>
+      <div class="flex gap-10 sm:gap-20" id="scroll-set-2"></div>
     </div>
 
     <!-- Skills Template -->
     <template id="skill-icons">
-      <div class="flex flex-col items-center text-white font-medium tracking-wide min-w-[70px] sm:min-w-0">
+      <div class="flex flex-col items-center text-white font-medium tracking-wide">
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="w-12 h-12 sm:w-14 sm:h-14 mb-1 sm:mb-2">
         <span class="text-xs sm:text-sm">Python</span>
       </div>
 
-      <div class="flex flex-col items-center text-white font-medium tracking-wide min-w-[70px] sm:min-w-0">
+      <div class="flex flex-col items-center text-white font-medium tracking-wide">
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch" class="w-12 h-12 sm:w-14 sm:h-14 mb-1 sm:mb-2">
         <span class="text-xs sm:text-sm">PyTorch</span>
       </div>
 
-      <div class="flex flex-col items-center text-white font-medium tracking-wide min-w-[70px] sm:min-w-0">
+      <div class="flex flex-col items-center text-white font-medium tracking-wide">
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" class="w-12 h-12 sm:w-14 sm:h-14 mb-1 sm:mb-2">
         <span class="text-xs sm:text-sm">TensorFlow</span>
       </div>
 
-      <div class="flex flex-col items-center text-white font-medium tracking-wide min-w-[70px] sm:min-w-0">
+      <div class="flex flex-col items-center text-white font-medium tracking-wide">
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" alt="NumPy" class="w-12 h-12 sm:w-14 sm:h-14 mb-1 sm:mb-2">
         <span class="text-xs sm:text-sm">NumPy</span>
       </div>
 
-      <div class="flex flex-col items-center text-white font-medium tracking-wide min-w-[70px] sm:min-w-0">
+      <div class="flex flex-col items-center text-white font-medium tracking-wide">
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django" class="w-12 h-12 sm:w-14 sm:h-14 mb-1 sm:mb-2 invert">
         <span class="text-xs sm:text-sm">Django</span>
       </div>
 
-      <div class="flex flex-col items-center text-white font-medium tracking-wide min-w-[70px] sm:min-w-0">
+      <div class="flex flex-col items-center text-white font-medium tracking-wide">
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" alt="OpenCV" class="w-12 h-12 sm:w-14 sm:h-14 mb-1 sm:mb-2">
         <span class="text-xs sm:text-sm">OpenCV</span>
       </div>
 
-      <div class="flex flex-col items-center text-white font-medium tracking-wide min-w-[70px] sm:min-w-0">
+      <div class="flex flex-col items-center text-white font-medium tracking-wide">
         <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="Scikit-Learn" class="w-12 h-12 sm:w-14 sm:h-14 mb-1 sm:mb-2">
         <span class="text-xs sm:text-sm">Scikit-Learn</span>
       </div>
 
-      <div class="flex flex-col items-center text-white font-medium tracking-wide min-w-[70px] sm:min-w-0">
+      <div class="flex flex-col items-center text-white font-medium tracking-wide">
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="Pandas" class="w-12 h-12 sm:w-14 sm:h-14 mb-1 sm:mb-2">
         <span class="text-xs sm:text-sm">Pandas</span>
       </div>
@@ -1256,6 +1255,7 @@ function animate(timestamp) {
 
 </body>
 </html>
+
 
 
 
