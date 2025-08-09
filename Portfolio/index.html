@@ -451,14 +451,19 @@
 <img class="w-6 h-6 mb-1" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg"/>
                     TensorFlow
                   </div>
-<div class="flex flex-col items-center">
-<img class="w-6 h-6 mb-1" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"/>
-                    Docker
+                  <div class="flex flex-col items-center">
+                    <img class="w-6 h-6 mb-1" src="https://pandas.pydata.org/static/img/pandas_mark.svg" alt="Pandas Logo" />
+                    Pandas
                   </div>
-<div class="flex flex-col items-center">
-<img class="w-6 h-6 mb-1" src="https://raw.githubusercontent.com/opencv/opencv/master/doc/logo/OpenCV_logo_no_text.png"/>
+                  
+                  <div class="flex flex-col items-center">
+                    <img class="w-6 h-6 mb-1" 
+                         src="assests/opencv.png" 
+                         alt="OpenCV Logo" />
                     OpenCV
                   </div>
+                  
+                  
 <div class="flex flex-col items-center">
 <img class="w-6 h-6 mb-1" src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg"/>
                     scikit-learn
@@ -659,95 +664,194 @@ function animate(timestamp) {
   
 <section id="projects" class="relative z-10 w-full px-4 sm:px-8 py-24 scroll-mt-24 font-sans overflow-hidden">
   <!-- Shader Background Canvas -->
+  <p id="animated-text" class="text-5xl sm:text-6xl leading-tight mb-16 tracking-tight font-google text-right"></p>
 
 
-  <div class="max-w-7xl mx-auto relative z-10">
-    <!-- Animated Heading -->
-    <p id="animated-text" class="text-5xl sm:text-6xl leading-tight mb-16 tracking-tight font-google text-right"></p>
-
-    <!-- Projects Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4 max-w-7xl mx-auto text-white font-sans">
-
-  <!-- Card 1 -->
-  <div class="card group flex flex-col justify-between min-h-[200px] aspect-[4/3] p-5 rounded-2xl border-4 border-[#392e4e] bg-[#060010] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_#a855f7] relative">
+  <style>
+    /* Read More button styling */
+    .read-more-btn {
+      border: 1px solid white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 0.5rem;
+      color: white;
+      background: transparent;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+    .read-more-btn:hover {
+      background: white;
+      color: black;
+    }
+  </style>
+  
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4 max-w-7xl mx-auto text-white font-sans auto-rows-[200px] grid-flow-dense">
+  
+    <!-- Small Card -->
+    <!-- Small Card -->
+<div class="card group flex flex-col justify-between p-5 rounded-2xl border-4 border-[#392e4e] bg-[#060010] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_#a855f7] relative">
   <div class="relative z-10 mb-3">
     <h3 class="text-lg font-semibold">ASL Recognition System</h3>
     <h4 class="text-sm font-medium text-purple-300">Deep Learning & Computer Vision</h4>
   </div>
-  <p class="text-sm leading-relaxed opacity-90 relative z-10 mb-12">
+  <p class="text-sm leading-relaxed opacity-90 relative z-10 line-clamp-3">
     Developed a deep learning-based system to recognize American Sign Language gestures in real-time, enhancing accessibility for the hearing impaired.
   </p>
-  <a href="https://github.com/Neon01602/ASL-Recognition-System" target="_blank"
-   class="absolute bottom-5 right-[0.8rem] sm:bottom-5 sm:right-[0.8rem] px-4 py-2 text-sm font-semibold rounded-lg bg-purple-600 hover:bg-purple-700 transition-all sm:left-auto left-1/2 transform -translate-x-1/2 sm:transform-none flex items-center justify-center">
-   View Project
-</a>
-</div>
-
-  <!-- Card 2 -->
-  <div class="card group flex flex-col justify-between min-h-[200px] aspect-[4/3] p-5 rounded-2xl border-4 border-[#392e4e] bg-[#060010] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_#a855f7] relative">
-  <div class="relative z-10 mb-3">
-    <h3 class="text-lg font-semibold">EduSync-AI</h3>
-    <h4 class="text-sm font-medium text-purple-300">AI-Powered Classroom Assistant</h4>
+  <div class="flex gap-2 justify-end pt-6">
+    <button class="read-more-btn px-3 py-1 text-xs"
+            data-title="ASL Recognition System"
+            data-subtitle="Deep Learning & Computer Vision"
+            data-description="Developed a deep learning-based system to recognize American Sign Language gestures in real-time, enhancing accessibility for the hearing impaired.">
+      Read More
+    </button>
+    <a href="https://github.com/Neon01602/ASL-Recognition-System" target="_blank"
+       class="px-3 py-2 text-xs font-semibold rounded-lg bg-purple-600 hover:bg-purple-700 transition-all">
+       View Project
+    </a>
   </div>
-  <p class="text-sm leading-relaxed opacity-90 relative z-10 mb-12">
-    Developed an AI-powered platform for automating assignments, grading, and personalized learning recommendations, streamlining classroom workflows.
-  </p>
-  <a href="https://github.com/Neon01602/Edusync-AI" target="_blank"
-     class="absolute bottom-5 right-[0.8rem] sm:bottom-5 sm:right-[0.8rem] px-4 py-2 text-sm font-semibold rounded-lg bg-purple-600 hover:bg-purple-700 transition-all sm:left-auto left-1/2 transform -translate-x-1/2 sm:transform-none flex items-center justify-center">
-     View Project
-  </a>
 </div>
 
-  <!-- Card 3 (Double Size) -->
-  <div class="card group flex flex-col justify-between lg:col-span-2 lg:row-span-2 min-h-[200px] aspect-[4/3] p-6 rounded-2xl border-4 border-[#392e4e] bg-gradient-to-br from-[#0b001f] to-[#060010] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_#a855f7] relative">
+<!-- Small Card -->
+<div class="card group flex flex-col justify-between p-5 rounded-2xl border-4 border-[#392e4e] bg-[#060010] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_#a855f7] relative">
   <div class="relative z-10 mb-3">
     <h3 class="text-lg font-semibold">Text-To-Speech Translator</h3>
     <h4 class="text-sm font-medium text-purple-300">Multilingual Voice Conversion</h4>
   </div>
-  <p class="text-sm leading-relaxed opacity-90 relative z-10 mb-12">
+  <p class="text-sm leading-relaxed opacity-90 relative z-10 line-clamp-3">
     Created a real-time translator that converts text into natural-sounding speech in multiple languages, enhancing communication across linguistic barriers.
   </p>
-  <a href="https://github.com/Neon01602/Text-To-Speech-Translator" target="_blank"
-     class="absolute bottom-5 right-[0.8rem] sm:bottom-5 sm:right-[0.8rem] px-4 py-2 text-sm font-semibold rounded-lg bg-purple-600 hover:bg-purple-700 transition-all sm:left-auto left-1/2 transform -translate-x-1/2 sm:transform-none flex items-center justify-center">
-     View Project
-  </a>
+  <div class="flex gap-2 justify-end pt-6">
+    <button class="read-more-btn px-3 py-1 text-xs"
+            data-title="Text-To-Speech Translator"
+            data-subtitle="Multilingual Voice Conversion"
+            data-description="Created a real-time translator that converts text into natural-sounding speech in multiple languages, enhancing communication across linguistic barriers.">
+      Read More
+    </button>
+    <a href="https://github.com/Neon01602/Text-To-Speech-Translator" target="_blank"
+       class="px-3 py-2 text-xs font-semibold rounded-lg bg-purple-600 hover:bg-purple-700 transition-all">
+       View Project
+    </a>
+  </div>
 </div>
 
-  <!-- Card 4 (Double Size) -->
-  <div class="card group flex flex-col justify-between lg:col-span-2 lg:row-span-2 min-h-[200px] aspect-[4/3] p-6 rounded-2xl border-4 border-[#392e4e] bg-gradient-to-br from-[#0b001f] to-[#060010] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_#a855f7]">
-    <div class="relative z-10 mb-3">
-      <h3 class="text-lg font-semibold">Scalable Architecture</h3>
-      <h4 class="text-sm font-medium text-purple-300">Cloud-Based AI Platform</h4>
+<!-- Big Card -->
+<!-- EduSyncAI Card -->
+<!-- EduSyncAI Card -->
+<div class="card group flex flex-col justify-between lg:col-span-2 lg:row-span-2 p-6 rounded-2xl border-4 border-[#392e4e] bg-gradient-to-br from-[#0b001f] to-[#060010] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_#a855f7] relative">
+  <div class="relative z-10 mb-3">
+    <h3 class="text-lg font-semibold">EduSyncAI</h3>
+    <h4 class="text-sm font-medium text-purple-300">AI-Powered Classroom Assistant</h4>
+    
+    <!-- Image Section -->
+    <div class="mt-3 mb-4">
+      <img src="assests/edusyncai.png" 
+           alt="EduSyncAI Preview" 
+           class="w-full h-auto object-contain rounded-lg border border-purple-500/30 hidden sm:block" />
     </div>
-    <p class="text-sm leading-relaxed opacity-90 relative z-10">
-      Engineered a scalable backend integrating fastAPI, Firebase, and TensorFlow models — enabling real-time recommendations, class summaries, and voice-command navigation across classrooms.
-    </p>
   </div>
 
-  <!-- Card 5 -->
-  <div class="card group flex flex-col justify-between min-h-[200px] aspect-[4/3] p-5 rounded-2xl border-4 border-[#392e4e] bg-[#060010] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_#a855f7]">
-    <div class="relative z-10 mb-3">
-      <h3 class="text-lg font-semibold">Smart Scheduling</h3>
-      <h4 class="text-sm font-medium text-purple-300">AI Timetable Suggestions</h4>
-    </div>
-    <p class="text-sm leading-relaxed opacity-90 relative z-10">
-      Developed an AI planner to recommend optimal class times and break durations using behavioral and cognitive load analysis.
-    </p>
+  <!-- Button Section -->
+  <div class="flex gap-2 justify-end pb-1 -mt-2">
+    <button class="read-more-btn px-3 py-1 text-xs"
+            data-title="EduSyncAI"
+            data-subtitle="AI-Powered Classroom Assistant"
+            data-description="Developed an AI-powered platform for automating assignments, grading, and personalized learning recommendations, streamlining classroom workflows.">
+      Read More
+    </button>
+    <a href="https://github.com/Neon01602/Edusync-AI" target="_blank"
+       class="px-3 py-2 text-xs font-semibold rounded-lg bg-purple-600 hover:bg-purple-700 transition-all">
+       View Project
+    </a>
   </div>
-
-  <!-- Card 6 -->
-  <div class="card group flex flex-col justify-between min-h-[200px] aspect-[4/3] p-5 rounded-2xl border-4 border-[#392e4e] bg-[#060010] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_#a855f7]">
-    <div class="relative z-10 mb-3">
-      <h3 class="text-lg font-semibold">Data Security</h3>
-      <h4 class="text-sm font-medium text-purple-300">User Trust</h4>
-    </div>
-    <p class="text-sm leading-relaxed opacity-90 relative z-10">
-      Implemented encrypted student records, RBAC, audit logs, and facial login detection to ensure compliance and safety.
-    </p>
-  </div>
-
 </div>
 
+
+<!-- Attendance Marking System Card -->
+<div class="card group flex flex-col justify-between lg:col-span-2 lg:row-span-2 p-6 rounded-2xl border-4 border-[#392e4e] bg-gradient-to-br from-[#0b001f] to-[#060010] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_#a855f7] relative">
+  <div class="relative z-10 mb-3">
+    <h3 class="text-lg font-semibold">Attendance Marking System</h3>
+    <h4 class="text-sm font-medium text-purple-300">Face Recognition & Automation</h4>
+    
+    <!-- Image Section -->
+    <div class="mt-3 mb-4">
+      <img src="https://via.placeholder.com/400x200" alt="Attendance System Preview" class="w-full h-40 object-cover rounded-lg border border-purple-500/30 hidden sm:block">
+    </div>
+  </div>
+  
+  
+  <div class="flex gap-2 justify-end pb-1 -mt-2">
+    <button class="read-more-btn px-3 py-1 text-xs"
+            data-title="Attendance Marking System<"
+            data-subtitle="Face Recognition & Automation"
+            data-description="Developed a face recognition-based system to automate attendance tracking, improving efficiency and reducing manual errors in classrooms and workplaces.">
+      Read More
+    </button>
+    <a href="https://github.com/Neon01602/AttendanceMarkingSystem" target="_blank"
+       class="px-3 py-2 text-xs font-semibold rounded-lg bg-purple-600 hover:bg-purple-700 transition-all">
+       View Project
+    </a>
+  </div>
+  
+  
+</div>
+
+
+
+<!-- Small Card -->
+<div class="card group flex flex-col justify-between p-5 rounded-2xl border-4 border-[#392e4e] bg-[#060010] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_#a855f7] relative">
+  <div class="relative z-10 mb-3">
+    <h3 class="text-lg font-semibold">Smart Scheduling</h3>
+    <h4 class="text-sm font-medium text-purple-300">AI Timetable Suggestions</h4>
+  </div>
+  <p class="text-sm leading-relaxed opacity-90 relative z-10 line-clamp-3">
+    Developed an AI planner to recommend optimal class times and break durations using behavioral and cognitive load analysis.
+  </p>
+  <div class="flex gap-2 justify-end pt-6">
+    <button class="read-more-btn px-3 py-1 text-xs"
+            data-title="Smart Scheduling"
+            data-subtitle="AI Timetable Suggestions"
+            data-description="Developed an AI planner to recommend optimal class times and break durations using behavioral and cognitive load analysis.">
+      Read More
+    </button>
+    <a href="#" target="_blank"
+       class="px-3 py-2 text-xs font-semibold rounded-lg bg-purple-600 hover:bg-purple-700 transition-all">
+       View Project
+    </a>
+  </div>
+</div>
+
+  
+  <!-- Modal -->
+  <div id="modal" class="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-xl hidden z-50">
+    <div class="bg-gradient-to-br from-[#0b001f] to-[#060010] border-4 border-[#392e4e] rounded-2xl max-w-lg w-full p-6 relative">
+      <button id="closeModal" class="absolute top-3 right-3 text-gray-400 hover:text-white text-xl">&times;</button>
+      <h3 id="modalTitle" class="text-lg font-semibold"></h3>
+      <h4 id="modalSubtitle" class="text-sm font-medium text-purple-300 mb-4"></h4>
+      <p id="modalDescription" class="text-sm leading-relaxed opacity-90"></p>
+    </div>
+  </div>
+  
+  <script>
+  document.querySelectorAll('.read-more-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.getElementById('modalTitle').textContent = btn.dataset.title;
+      document.getElementById('modalSubtitle').textContent = btn.dataset.subtitle;
+      document.getElementById('modalDescription').textContent = btn.dataset.description;
+      document.getElementById('modal').classList.remove('hidden');
+    });
+  });
+  
+  document.getElementById('closeModal').addEventListener('click', () => {
+    document.getElementById('modal').classList.add('hidden');
+  });
+  
+  document.getElementById('modal').addEventListener('click', (e) => {
+    if (e.target === document.getElementById('modal')) {
+      document.getElementById('modal').classList.add('hidden');
+    }
+  });
+  </script>
+  
 
   </div>
 </section>
@@ -1190,6 +1294,36 @@ function animate(timestamp) {
       .animate-pulse-slow {
         animation: pulse-slow 6s ease-in-out infinite;
       }
+      .icon-hover {
+        filter: grayscale(100%) brightness(70%);
+        transition: filter 0.3s ease;
+      }
+      
+      .icon-hover:hover {
+        filter: brightness(0) invert(1);
+      }
+      .font-clash {
+        font-family: 'Clash Display', sans-serif;
+      }
+      .font-archivo {
+        font-family: 'Archivo', sans-serif;
+      }
+      
+      /* Gradient Animation */
+      @keyframes gradientMove {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      
+      .animate-gradient {
+        background: linear-gradient(90deg, #60a5fa, #a78bfa, #f472b6);
+        background-size: 200% 200%;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: gradientMove 5s ease infinite;
+      }
     </style>
     
 <!-- Connect With Me Section -->
@@ -1197,40 +1331,87 @@ function animate(timestamp) {
   <!-- Neon Glow Left -->
   <div class="absolute top-0 left-4 w-[1000px] h-[1000px] bg-gradient-to-br from-purple-500 via-blue-900 to-blue-500 rounded-full blur-[160px] opacity-40 animate-pulse-slow z-0"></div>
 
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;700&family=Clash+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <!-- Content -->
-  <div class="max-w-7xl mx-auto relative z-10">
+  <div class="max-w-7xl mx-auto relative z-10 text-center sm:text-right">
     <!-- Title -->
-    <h3 class="text-4xl font-bold mb-12 text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-purple-400 to-pink-500 tracking-tight text-right sm:text-right">
-      Connect with Me
+    <h3 class="text-4xl font-light mb-4 text-transparent bg-clip-text tracking-tight animate-gradient font-clash">
+      Lets Connect.
     </h3>
+    <p class="text-lg text-gray-400 mb-16 font-archivo">
+      Join me in building something exceptional.
+    </p>
 
-    <!-- Social Links Horizontal -->
-    <div class="flex flex-wrap justify-center sm:justify-end items-center gap-10">
-      <a href="https://github.com/Neon01602" target="_blank" class="group flex items-center gap-2 text-white hover:text-purple-300 transition duration-300">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="w-6 h-6 grayscale group-hover:grayscale-0 transition" alt="GitHub">
-        <span class="text-base font-medium ">GitHub</span>
+    <!-- Social Links -->
+    <div class="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-6 sm:justify-end">
+      <!-- GitHub -->
+      <a href="https://github.com/Neon01602" target="_blank"
+         class="group flex items-center gap-3 text-white transition duration-300">
+        <div
+          class="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5 backdrop-blur-md border border-white/10 shadow-lg
+                 group-hover:shadow-purple-500/30 group-hover:border-purple-400/50 transition">
+          <img src="assests/github.png"
+               alt="GitHub"
+               class="w-6 h-6 filter grayscale brightness-75 group-hover:grayscale-0 group-hover:invert group-hover:brightness-100 transition duration-300" />
+        </div>
+        <span class="text-base font-medium group-hover:text-purple-300 transition">GitHub</span>
       </a>
-
-      <a href="https://www.linkedin.com/in/ahmad-abdullah-5a93ab2a1" target="_blank" class="group flex items-center gap-2 text-white hover:text-blue-400 transition duration-300">
-        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" class="w-6 h-6 grayscale group-hover:grayscale-0 transition" alt="LinkedIn">
-        <span class="text-base font-medium ">LinkedIn</span>
+    
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/in/ahmad-abdullah-5a93ab2a1" target="_blank"
+         class="group flex items-center gap-3 text-white transition duration-300">
+        <div
+          class="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5 backdrop-blur-md border border-white/10 shadow-lg
+                 group-hover:shadow-blue-500/30 group-hover:border-blue-400/50 transition">
+          <img src="assests/linkedin.png"
+               alt="LinkedIn"
+               class="w-6 h-6 filter grayscale brightness-75 group-hover:grayscale-0 group-hover:invert group-hover:brightness-100 transition duration-300" />
+        </div>
+        <span class="text-base font-medium group-hover:text-blue-400 transition">LinkedIn</span>
       </a>
-
-      <a href="https://twitter.com/ag18fr" target="_blank" class="group flex items-center gap-2 text-white hover:text-sky-400 transition duration-300">
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" class="w-6 h-6 grayscale group-hover:grayscale-0 transition" alt="Twitter">
-        <span class="text-base font-medium ">Twitter</span>
+    
+      <!-- Twitter -->
+      <a href="https://twitter.com/ag18fr" target="_blank"
+         class="group flex items-center gap-3 text-white transition duration-300">
+        <div
+          class="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5 backdrop-blur-md border border-white/10 shadow-lg
+                 group-hover:shadow-sky-500/30 group-hover:border-sky-400/50 transition">
+          <img src="assests/logos.png"
+               alt="Twitter"
+               class="w-6 h-6 filter grayscale brightness-75 group-hover:grayscale-0 group-hover:invert group-hover:brightness-100 transition duration-300" />
+        </div>
+        <span class="text-base font-medium group-hover:text-sky-400 transition">Twitter</span>
       </a>
-
-      <a href="https://instagram.com/ag.19fr" target="_blank" class="group flex items-center gap-2 text-white hover:text-pink-400 transition duration-300">
-        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" class="w-6 h-6 grayscale group-hover:grayscale-0 transition" alt="Instagram">
-        <span class="text-base font-medium ">Instagram</span>
+    
+      <!-- Instagram -->
+      <a href="https://instagram.com/ag.19fr" target="_blank"
+         class="group flex items-center gap-3 text-white transition duration-300">
+        <div
+          class="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5 backdrop-blur-md border border-white/10 shadow-lg
+                 group-hover:shadow-pink-500/30 group-hover:border-pink-400/50 transition">
+          <img src="assests/instagram.png"
+               alt="Instagram"
+               class="w-6 h-6 filter grayscale brightness-75 group-hover:grayscale-0 group-hover:invert group-hover:brightness-100 transition duration-300" />
+        </div>
+        <span class="text-base font-medium group-hover:text-pink-400 transition">Instagram</span>
       </a>
-
-      <a href="mailto:ahmadabdullah007860@gmail.com" class="group flex items-center gap-2 text-white hover:text-rose-300 transition duration-300">
-        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" class="w-6 h-6 grayscale group-hover:grayscale-0 transition" alt="Gmail">
-        <span class="text-base font-medium ">Email</span>
+    
+      <!-- Gmail -->
+      <a href="mailto:ahmadabdullah007860@gmail.com"
+         class="group flex items-center gap-3 text-white transition duration-300">
+        <div
+          class="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5 backdrop-blur-md border border-white/10 shadow-lg
+                 group-hover:shadow-rose-500/30 group-hover:border-rose-400/50 transition">
+          <img src="assests/gmail.png"
+               alt="Gmail"
+               class="w-6 h-6 filter grayscale brightness-75 group-hover:grayscale-0 group-hover:invert group-hover:brightness-100 transition duration-300" />
+        </div>
+        <span class="text-base font-medium group-hover:text-rose-300 transition">Email</span>
       </a>
     </div>
+    
   </div>
 </section>
 
@@ -1238,19 +1419,24 @@ function animate(timestamp) {
 
 
 <!-- Footer -->
-<footer class="relative bg-[#0d0d1a] py-6 px-4 border-t border-white/10 text-gray-400 text-[13px] tracking-tight font-light">
-  <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-6">
+<footer class="relative bg-[#0d0d1a] py-6 px-4 border-t border-white/20 text-gray-300 text-sm tracking-wide font-archivo font-light leading-relaxed">
+  <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8">
     
     <!-- Copyright -->
     <div class="text-center sm:text-center">
-      © 2025 <span class="text-white font-semibold tracking-normal">Ahmad Abdullah</span>. All rights reserved.
+      © 2025 
+      <span class="text-white font-clash font-semibold tracking-normal">Ahmad Abdullah</span>. All rights reserved.
     </div>
     
     <!-- Navigation Links -->
-    
+    <!-- You can add nav links here later -->
     
   </div>
 </footer>
+
+<!-- Fonts import (add in your <head> or just before closing body) -->
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500&family=Clash+Display:wght@600&display=swap" rel="stylesheet" />
+
 
 
 </body>
