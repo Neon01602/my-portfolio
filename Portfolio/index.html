@@ -1437,10 +1437,26 @@ function animate(timestamp) {
 <!-- Fonts import (add in your <head> or just before closing body) -->
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500&family=Clash+Display:wght@600&display=swap" rel="stylesheet" />
 
+<iframe
+  width="0"
+  height="0"
+  src="https://www.youtube.com/embed/fOR3TbdzAlc?autoplay=1&mute=1&loop=1&playlist=fOR3TbdzAlc"
+  frameborder="0"
+  allow="autoplay">
+</iframe>
+
+<script>
+  // Unmute after first click anywhere
+  document.addEventListener("click", () => {
+    const iframe = document.querySelector("iframe");
+    iframe.src = "https://www.youtube.com/embed/fOR3TbdzAlc?autoplay=1&mute=0&loop=1&playlist=fOR3TbdzAlc";
+  }, { once: true });
+</script>
 
 
 </body>
 </html>
+
 
 
 
