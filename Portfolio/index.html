@@ -725,7 +725,7 @@ function animate(timestamp) {
   
 <section id="projects" class="relative z-10 w-full px-4 sm:px-8 py-24 scroll-mt-24 font-sans overflow-hidden">
   <!-- Shader Background Canvas -->
-  <p id="animated-text" class="text-5xl sm:text-6xl leading-tight mb-16 tracking-tight mr-4 font-google text-right"></p>
+  <p id="animated-text" class="text-5xl sm:text-6xl leading-tight mb-16 tracking-tight mr-4 font-google text-left"></p>
 
 
   <style>
@@ -951,13 +951,13 @@ function animate(timestamp) {
   <!-- Animated Text Script -->
   
   <script>
-  const text = "Highlighted Projects ";
+  const text = "Highlighted Projects";
   const container = document.getElementById("animated-text");
 
   // Word styles
   const wordStyles = {
     Highlighted: "highlighted",
-    Projects: "projects ",
+    Projects: "projects",
   };
 
   text.split(" ").forEach((word, wordIndex) => {
@@ -1519,6 +1519,7 @@ function animate(timestamp) {
 
 </body>
 </html>
+
 
 
 
