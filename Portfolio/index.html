@@ -496,97 +496,149 @@
     </script>
     
 <div class="relative w-full bg-black overflow-hidden">
-<!-- Line background canvas -->
-<canvas class="absolute inset-0 w-full h-full z-0 pointer-events-none" id="silkCanvas"></canvas>
-<!-- About Section -->
-<section class="relative z-10 w-full px-4 sm:px-8 py-24 scroll-mt-24 font-sans" id="about">
-<div class="max-w-7xl mx-auto">
-<!-- Heading -->
-<h2 class="text-5xl sm:text-6xl leading-tight mb-16 tracking-tight font-google text-left animate-fade-in-up">
-<span class="font-extralight bg-clip-text text-transparent bg-gradient-to-r from-[#b3e5fc] to-[#a0c4ff]">About</span>
-<span class="font-semibold ml-2 bg-clip-text text-transparent bg-gradient-to-r from-[#a0c4ff] to-[#b3e5fc]">Me &lt;&gt;</span>
-</h2>
-<!-- Grid -->
-<div class="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-8">
-<!-- Left Card -->
-<div class="relative bg-white/5 border border-white/20 backdrop-blur-xl rounded-2xl p-6 shadow-lg overflow-hidden group transition-all duration-500 animate-fade-in-up">
-<div class="absolute inset-0 rounded-2xl border border-white/10 group-hover:border-white/30 transition pointer-events-none"></div>
-<div class="relative z-10 space-y-4">
-<h3 class="text-white text-lg font-semibold tracking-wide uppercase">Research &amp; Interests</h3>
-<ul class="list-disc list-inside text-gray-300 text-sm space-y-1 font-light">
-<li><span class="text-purple-300 font-medium">Human-Centered AI</span> and adaptive systems</li>
-<li><span class="text-pink-300 font-medium">Multimodal Learning</span> with vision + language</li>
-<li><span class="text-indigo-300 font-medium">Cognitive Modeling</span> and decision frameworks</li>
-<li><span class="text-blue-400 font-medium">AI for Education</span> and intelligent tutoring systems</li>
-</ul>
+
+  <!-- Line background canvas -->
+  <canvas
+    id="silkCanvas"
+    class="absolute inset-0 w-full h-full z-0 pointer-events-none">
+  </canvas>
+
+  <!-- About Section -->
+  <section
+    id="about"
+    class="relative z-10 w-full px-4 sm:px-8 py-24 scroll-mt-24 font-sans"
+  >
+    <div class="max-w-7xl mx-auto">
+
+      <!-- Heading -->
+      <h2
+        class="text-5xl sm:text-6xl leading-tight mb-16 tracking-tight font-google
+               text-center md:text-left animate-fade-in-up"
+      >
+        <span class="font-extralight bg-clip-text text-transparent bg-gradient-to-r from-[#b3e5fc] to-[#a0c4ff]">
+          About
+        </span>
+        <span class="font-semibold ml-2 bg-clip-text text-transparent bg-gradient-to-r from-[#a0c4ff] to-[#b3e5fc]">
+          Me &lt;&gt;
+        </span>
+      </h2>
+
+      <!-- Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-8">
+
+        <!-- Left Card -->
+        <div
+          class="relative bg-white/5 border border-white/20 backdrop-blur-xl
+                 rounded-2xl p-6 shadow-lg overflow-hidden group
+                 transition-all duration-500 animate-fade-in-up
+                 text-center md:text-left"
+        >
+          <div class="absolute inset-0 rounded-2xl border border-white/10 group-hover:border-white/30 transition pointer-events-none"></div>
+
+          <div class="relative z-10 space-y-4">
+            <h3 class="text-white text-lg font-semibold tracking-wide uppercase">
+              Research &amp; Interests
+            </h3>
+            <ul class="list-disc list-inside text-gray-300 text-sm space-y-1 font-light">
+              <li><span class="text-purple-300 font-medium">Human-Centered AI</span> and adaptive systems</li>
+              <li><span class="text-pink-300 font-medium">Multimodal Learning</span> with vision + language</li>
+              <li><span class="text-indigo-300 font-medium">Cognitive Modeling</span> and decision frameworks</li>
+              <li><span class="text-blue-400 font-medium">AI for Education</span> and intelligent tutoring systems</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Main Card -->
+        <div
+          class="relative bg-white/5 border border-white/20 backdrop-blur-xl
+                 rounded-2xl p-6 md:p-8 shadow-lg overflow-hidden group
+                 transition-all duration-500 animate-fade-in-up delay-100
+                 text-center md:text-left"
+        >
+          <div class="absolute inset-0 rounded-2xl border border-white/10 group-hover:border-white/30 transition pointer-events-none"></div>
+
+          <div class="relative z-10 space-y-6">
+            <p class="text-gray-300 text-lg font-light leading-relaxed">
+              I'm <span class="text-white font-medium">Ahmad</span>, a
+              <span class="text-blue-400 font-semibold"> Machine Learning Engineer</span>
+              focused on crafting
+              <span class="text-purple-400 italic"> intelligent systems</span>
+              that deliver real-world impact.
+            </p>
+
+            <!-- Tech Stack -->
+            <div
+              class="grid grid-cols-3 sm:grid-cols-6 gap-4 text-sm text-gray-300
+                     justify-items-center md:justify-items-start"
+            >
+              <div class="flex flex-col items-center">
+                <img class="w-6 h-6 mb-1" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" />
+                Python
+              </div>
+              <div class="flex flex-col items-center">
+                <img class="w-6 h-6 mb-1" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" />
+                PyTorch
+              </div>
+              <div class="flex flex-col items-center">
+                <img class="w-6 h-6 mb-1" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" />
+                TensorFlow
+              </div>
+              <div class="flex flex-col items-center">
+                <img class="w-6 h-6 mb-1" src="https://pandas.pydata.org/static/img/pandas_mark.svg" />
+                Pandas
+              </div>
+              <div class="flex flex-col items-center">
+                <img class="w-6 h-6 mb-1" src="assests/opencv.png" />
+                OpenCV
+              </div>
+              <div class="flex flex-col items-center">
+                <img class="w-6 h-6 mb-1" src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" />
+                scikit-learn
+              </div>
+            </div>
+
+            <p class="text-base text-gray-400 leading-relaxed font-light">
+              I specialize in
+              <span class="text-pink-400 font-medium"> Computer Vision</span>,
+              <span class="text-indigo-400 font-medium"> NLP</span>, and
+              <span class="text-cyan-400 font-medium"> Scalable AI Systems</span>.
+              My work translates research into optimized, robust solutions.
+            </p>
+          </div>
+        </div>
+
+        <!-- Full Width Card -->
+        <div
+          class="relative bg-white/5 border border-white/20 backdrop-blur-xl
+                 rounded-2xl p-6 shadow-lg overflow-hidden group
+                 transition-all duration-500 lg:col-span-3
+                 animate-fade-in-up delay-200
+                 text-center md:text-left"
+        >
+          <div class="absolute inset-0 rounded-2xl border border-white/10 group-hover:border-white/30 transition pointer-events-none"></div>
+
+          <div class="relative z-10 space-y-4">
+            <h3 class="text-white font-semibold tracking-wide text-lg uppercase">
+              My Journey
+            </h3>
+            <p class="text-gray-300 text-sm leading-relaxed font-light">
+              With a foundation in software engineering and a love for AI, I've contributed to
+              MLOps, deep learning pipelines, and production-grade deployments across domains
+              like EdTech and healthcare.
+            </p>
+            <ul class="list-disc list-inside text-sm text-gray-400 space-y-1">
+              <li><span class="text-blue-300">Education:</span> B.Tech CSE (AI Specialization)</li>
+              <li><span class="text-blue-300">Experience:</span> 2+ years hands-on in applied ML + SaaS internships</li>
+              <li><span class="text-blue-300">Vision:</span> Democratize AI for growth, learning, and well-being</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
 </div>
-</div>
-<!-- Main Card -->
-<div class="relative bg-white/5 border border-white/20 backdrop-blur-xl rounded-2xl p-6 md:p-8 shadow-lg overflow-hidden group transition-all duration-500 animate-fade-in-up delay-100">
-<div class="absolute inset-0 rounded-2xl border border-white/10 group-hover:border-white/30 transition pointer-events-none"></div>
-<div class="relative z-10 space-y-6">
-<p class="text-gray-300 text-lg font-light leading-relaxed">
-                  I'm <span class="text-white font-medium">Ahmad</span>, a <span class="text-blue-400 font-semibold">Machine Learning Engineer</span> focused on crafting
-                  <span class="text-purple-400 italic">intelligent systems</span> that deliver real-world impact.
-                </p>
-<!-- Tech Stack -->
-<div class="grid grid-cols-3 sm:grid-cols-6 gap-4 text-sm text-gray-300">
-<div class="flex flex-col items-center">
-<img class="w-6 h-6 mb-1" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"/>
-                    Python
-                  </div>
-<div class="flex flex-col items-center">
-<img class="w-6 h-6 mb-1" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg"/>
-                    PyTorch
-                  </div>
-<div class="flex flex-col items-center">
-<img class="w-6 h-6 mb-1" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg"/>
-                    TensorFlow
-                  </div>
-                  <div class="flex flex-col items-center">
-                    <img class="w-6 h-6 mb-1" src="https://pandas.pydata.org/static/img/pandas_mark.svg" alt="Pandas Logo" />
-                    Pandas
-                  </div>
-                  
-                  <div class="flex flex-col items-center">
-                    <img class="w-6 h-6 mb-1" 
-                         src="assests/opencv.png" 
-                         alt="OpenCV Logo" />
-                    OpenCV
-                  </div>
-                  
-                  
-<div class="flex flex-col items-center">
-<img class="w-6 h-6 mb-1" src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg"/>
-                    scikit-learn
-                  </div>
-</div>
-<p class="text-base text-gray-400 leading-relaxed font-light">
-                  I specialize in <span class="text-pink-400 font-medium">Computer Vision</span>,
-                  <span class="text-indigo-400 font-medium">NLP</span>, and 
-                  <span class="text-cyan-400 font-medium">Scalable AI Systems</span>. My work translates research into optimized, robust solutions.
-                </p>
-</div>
-</div>
-<!-- Full Width Card -->
-<div class="relative bg-white/5 border border-white/20 backdrop-blur-xl rounded-2xl p-6 shadow-lg overflow-hidden group transition-all duration-500 lg:col-span-3 animate-fade-in-up delay-200">
-<div class="absolute inset-0 rounded-2xl border border-white/10 group-hover:border-white/30 transition pointer-events-none"></div>
-<div class="relative z-10 space-y-4">
-<h3 class="text-white font-semibold tracking-wide text-lg uppercase">My Journey</h3>
-<p class="text-gray-300 text-sm leading-relaxed font-light">
-                  With a foundation in software engineering and a love for AI, I've contributed to MLOps, deep learning pipelines, and production-grade deployments across domains like EdTech and healthcare.
-                </p>
-<ul class="list-disc list-inside text-sm text-gray-400 space-y-1">
-<li><span class="text-blue-300">Education:</span> B.Tech CSE (AI Specialization)</li>
-<li><span class="text-blue-300">Experience:</span> 2+ years hands-on in applied ML + SaaS internships</li>
-<li><span class="text-blue-300">Vision:</span> Democratize AI for growth, learning, and well-being</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</section>
-</div>
+
 <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
 <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
 <!-- Beams Background Script -->
@@ -1568,6 +1620,7 @@ function animate(timestamp) {
 
 </body>
 </html>
+
 
 
 
