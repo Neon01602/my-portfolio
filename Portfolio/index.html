@@ -321,33 +321,33 @@
 <script>
       lucide.createIcons();
     </script>
-<section class="relative h-screen flex items-center justify-center px-6 overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-900">
+<section class="relative min-h-screen flex items-center justify-center px-6 overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-900">
 
   <!-- Larger Neon Glow Behind Image -->
   <div class="absolute top-1/2 right-[2%] transform -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-blue-800 via-indigo-600 to-purple-600 blur-3xl opacity-40 animate-pulse z-0"></div>
 
   <!-- Main Content Container -->
-  <div class="relative z-10 flex flex-col md:flex-row items-center justify-between w-full max-w-7xl mx-auto">
+  <div class="relative z-10 flex flex-col items-center md:flex-row md:items-center md:justify-between w-full max-w-7xl mx-auto">
 
     <!-- MOBILE IMAGE (Top on mobile, Right on desktop) -->
-    <div class="w-full md:w-auto flex justify-center mb-6 md:mb-0 md:order-2">
+    <div class="w-full md:w-auto flex justify-center mb-8 md:mb-0 md:order-2">
       <div class="w-56 h-72 md:w-72 md:h-96 rounded-[20px] md:rounded-[24px] overflow-hidden border-4 border-blue-900/30 shadow-lg backdrop-blur-lg">
         <img alt="Ahmad Abdullah" class="object-cover w-full h-full" src="assests/Ahmad1.png"/>
       </div>
     </div>
 
     <!-- LEFT: Text and Buttons -->
-    <div class="max-w-2xl text-center md:text-left animate-fade-in-up md:ml-10 md:order-1">
+    <div class="max-w-2xl w-full text-center md:text-left animate-fade-in-up md:ml-10 md:order-1">
 
       <h1 class="text-4xl sm:text-6xl leading-tight mb-4 text-white tracking-tight font-google">
         <span class="font-light">Hi, I'm</span>
         <span class="gradient-text font-semibold"> Ahmad Abdullah.</span>
         <br/>
         <span
-          class="text-2xl sm:text-4xl mt-2 inline-block font-light italic
+          id="typed-role"
+          class="block text-2xl sm:text-4xl mt-2 font-light italic
                  bg-gradient-to-r from-blue-800 via-blue-600 to-blue-800
-                 bg-clip-text text-transparent"
-          id="typed-role">
+                 bg-clip-text text-transparent">
         </span>
       </h1>
 
@@ -360,52 +360,36 @@
 
         <!-- About Me Button -->
         <div class="relative inline-block overflow-hidden rounded-[20px] py-[1px]">
-          <div
-            class="absolute w-[300%] h-[20%] opacity-70 bottom-[-11px] right-[-250%]
-                   rounded-full animate-star-movement-bottom z-0"
-            style="background: radial-gradient(circle, white, transparent 10%); animation-duration: 6s;">
-          </div>
+          <div class="absolute w-[300%] h-[20%] opacity-70 bottom-[-11px] right-[-250%] rounded-full animate-star-movement-bottom z-0"
+               style="background: radial-gradient(circle, white, transparent 10%); animation-duration: 6s;"></div>
+          <div class="absolute w-[300%] h-[50%] opacity-70 top-[-10px] left-[-250%] rounded-full animate-star-movement-top z-0"
+               style="background: radial-gradient(circle, white, transparent 10%); animation-duration: 6s;"></div>
 
-          <div
-            class="absolute w-[300%] h-[50%] opacity-70 top-[-10px] left-[-250%]
-                   rounded-full animate-star-movement-top z-0"
-            style="background: radial-gradient(circle, white, transparent 10%); animation-duration: 6s;">
-          </div>
-
-          <a
-            href="#about"
-            class="relative z-10 bg-[#0f2027] border border-white border-[0.5px]
-                   text-white text-[13px] sm:text-[15px]
-                   py-[6px] sm:py-[8px] px-[16px] sm:px-[20px]
-                   rounded-[18px] sm:rounded-[20px] font-medium
-                   transition-colors duration-300 block text-center
-                   hover:bg-white hover:text-black">
+          <a href="#about"
+             class="relative z-10 bg-[#0f2027] border border-white border-[0.5px]
+                    text-white text-[13px] sm:text-[15px]
+                    py-[6px] sm:py-[8px] px-[16px] sm:px-[20px]
+                    rounded-[18px] sm:rounded-[20px] font-medium
+                    transition-colors duration-300 block text-center
+                    hover:bg-white hover:text-black">
             About Me
           </a>
         </div>
 
         <!-- Contact Me Button -->
         <div class="relative inline-block overflow-hidden rounded-[20px] py-[1px]">
-          <div
-            class="absolute w-[300%] h-[50%] opacity-70 bottom-[-11px] right-[-250%]
-                   rounded-full animate-star-movement-bottom z-0"
-            style="background: radial-gradient(circle, white, transparent 10%); animation-duration: 6s;">
-          </div>
+          <div class="absolute w-[300%] h-[50%] opacity-70 bottom-[-11px] right-[-250%] rounded-full animate-star-movement-bottom z-0"
+               style="background: radial-gradient(circle, white, transparent 10%); animation-duration: 6s;"></div>
+          <div class="absolute w-[300%] h-[50%] opacity-70 top-[-10px] left-[-250%] rounded-full animate-star-movement-top z-0"
+               style="background: radial-gradient(circle, white, transparent 10%); animation-duration: 6s;"></div>
 
-          <div
-            class="absolute w-[300%] h-[50%] opacity-70 top-[-10px] left-[-250%]
-                   rounded-full animate-star-movement-top z-0"
-            style="background: radial-gradient(circle, white, transparent 10%); animation-duration: 6s;">
-          </div>
-
-          <a
-            href="#contact"
-            class="relative z-10 bg-[#0f2027] border border-white border-[0.5px]
-                   text-white text-[13px] sm:text-[15px]
-                   py-[6px] sm:py-[8px] px-[16px] sm:px-[20px]
-                   rounded-[18px] sm:rounded-[20px] font-medium
-                   transition-colors duration-300 block text-center
-                   hover:bg-white hover:text-black">
+          <a href="#contact"
+             class="relative z-10 bg-[#0f2027] border border-white border-[0.5px]
+                    text-white text-[13px] sm:text-[15px]
+                    py-[6px] sm:py-[8px] px-[16px] sm:px-[20px]
+                    rounded-[18px] sm:rounded-[20px] font-medium
+                    transition-colors duration-300 block text-center
+                    hover:bg-white hover:text-black">
             Contact Me
           </a>
         </div>
@@ -416,6 +400,7 @@
   </div>
 
 </section>
+
 
 <script>
       const roles = ["Machine Learning Engineer", "Founder - EduSyncAI","AI Developer", "Deep Learning Specialist"];
@@ -1568,6 +1553,7 @@ function animate(timestamp) {
 
 </body>
 </html>
+
 
 
 
