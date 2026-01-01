@@ -754,23 +754,26 @@ function animate(timestamp) {
     <canvas id="spotlight-canvas" class="absolute top-0 left-0 w-full h-full z-0 pointer-events-none"></canvas>
   
   
-<section id="projects" class="relative z-10 w-full px-4 sm:px-8 py-24 scroll-mt-24 font-sans overflow-hidden">
-  <!-- Shader Background Canvas -->
-  <p class="text-4xl sm:text-6xl leading-tight mb-12 tracking-tight mr-4 font-google text-center">
-  <span class="text-purple-800 font-semibold">Highlighted</span>
-  <span class="font-bold">Projects</span>
-</p>
+<section
+  id="projects"
+  class="relative z-10 w-full px-4 sm:px-8 py-24 scroll-mt-24 font-sans overflow-hidden"
+>
 
+  <!-- Section Heading -->
+  <p class="text-4xl sm:text-6xl leading-tight mb-12 tracking-tight font-google text-center">
+    <span class="text-purple-800 font-semibold">Highlighted</span>
+    <span class="font-bold"> Projects</span>
+  </p>
 
+  <!-- Read More Button Styles -->
   <style>
-    /* Read More button styling */
     .read-more-btn {
       border: 1px solid white;
       padding: 0.4rem 0.8rem;
       border-radius: 0.5rem;
       color: white;
       background: transparent;
-      font-size: 0.875rem;
+      font-size: 0.75rem;
       font-weight: 500;
       transition: all 0.2s ease;
     }
@@ -779,180 +782,192 @@ function animate(timestamp) {
       color: black;
     }
   </style>
-  
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4 max-w-7xl mx-auto text-white font-sans auto-rows-[200px] grid-flow-dense">
-  
+
+  <!-- Projects Grid -->
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-7xl mx-auto text-white auto-rows-auto"
+  >
+
     <!-- Small Card -->
-    <!-- Small Card -->
-<div class="card group flex flex-col justify-between p-5 rounded-2xl border-4 border-[#392e4e] bg-[#060010] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_#a855f7] relative">
-  <div class="relative z-10 mb-3">
-    <h3 class="text-lg font-semibold">ASL Recognition System</h3>
-    <h4 class="text-sm font-medium text-purple-300">Deep Learning & Computer Vision</h4>
-  </div>
-  <p class="text-sm leading-relaxed opacity-90 relative z-10 line-clamp-3">
-    Developed a deep learning-based system to recognize American Sign Language gestures in real-time, enhancing accessibility for the hearing impaired.
-  </p>
-  <div class="flex gap-2 justify-end pt-6">
-    <button class="read-more-btn px-3 py-1 text-xs"
-            data-title="ASL Recognition System"
-            data-subtitle="Deep Learning & Computer Vision"
-            data-description="Developed a deep learning-based system to recognize American Sign Language gestures in real-time, enhancing accessibility for the hearing impaired.">
-      Read More
-    </button>
-    <a href="https://github.com/Neon01602/ASL-Recognition-System" target="_blank"
-       class="px-3 py-2 text-xs font-semibold rounded-lg bg-purple-600 hover:bg-purple-700 transition-all">
-       View Project
-    </a>
-  </div>
-</div>
-
-<!-- Small Card -->
-<div class="card group flex flex-col justify-between p-5 rounded-2xl border-4 border-[#392e4e] bg-[#060010] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_#a855f7] relative">
-  <div class="relative z-10 mb-3">
-    <h3 class="text-lg font-semibold">MCRAS</h3>
-    <h4 class="text-sm font-medium text-purple-300">Multi-Channel Recurrent Attention System</h4>
-  </div>
-  <p class="text-sm leading-relaxed opacity-90 relative z-10 line-clamp-3">
-    MCRAS is a Python-based deep learning library that fuses recurrent architectures with attention mechanisms to effectively learn temporal and inter-channel dependencies in multi-channel time-series data.
-  </p>
-  <div class="flex gap-2 justify-end pt-6">
-    <button class="read-more-btn px-3 py-1 text-xs"
-            data-title="MCRAS"
-            data-subtitle="Multi-Channel Recurrent Attention System"
-            data-description="MCRAS is a Python-based deep learning library that fuses recurrent architectures with attention mechanisms to effectively learn temporal and inter-channel dependencies in multi-channel time-series data.">
-      Read More
-    </button>
-    <a href="https://github.com/Neon01602/MCRAS" target="_blank"
-       class="px-3 py-2 text-xs font-semibold rounded-lg bg-purple-600 hover:bg-purple-700 transition-all">
-       View Project
-    </a>
-  </div>
-</div>
-
-<!-- Big Card -->
-<!-- EduSyncAI Card -->
-<!-- EduSyncAI Card -->
-<div class="card group flex flex-col justify-between lg:col-span-2 lg:row-span-2 p-6 rounded-2xl border-4 border-[#392e4e] bg-gradient-to-br from-[#0b001f] to-[#060010] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_#a855f7] relative">
-  <div class="relative z-10 mb-3">
-    <h3 class="text-lg font-semibold">EduSyncAI</h3>
-    <h4 class="text-sm font-medium text-purple-300">AI-Powered Classroom Assistant</h4>
-    
-    <!-- Image Section -->
-    <div class="mt-3 mb-4">
-      <img src="assests/edusyncai.png" 
-           alt="EduSyncAI Preview" 
-           class="w-full h-auto object-contain rounded-lg border border-purple-500/30 hidden sm:block" />
-    </div>
-  </div>
-
-  <!-- Button Section -->
-  <div class="flex gap-2 justify-end pb-1 -mt-2">
-    <button class="read-more-btn px-3 py-1 text-xs"
-            data-title="EduSyncAI"
-            data-subtitle="AI-Powered Classroom Assistant"
-            data-description="Developed an AI-powered platform for automating assignments, grading, and personalized learning recommendations, streamlining classroom workflows.">
-      Read More
-    </button>
-    <a href="https://github.com/Neon01602/Edusync-AI" target="_blank"
-       class="px-3 py-2 text-xs font-semibold rounded-lg bg-purple-600 hover:bg-purple-700 transition-all">
-       View Project
-    </a>
-  </div>
-</div>
-
-
-<!-- Attendance Marking System Card -->
-<div class="card group flex flex-col justify-between lg:col-span-2 lg:row-span-2 p-6 rounded-2xl border-4 border-[#392e4e] bg-gradient-to-br from-[#0b001f] to-[#060010] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_#a855f7] relative">
-  <div class="relative z-10 mb-3">
-    <h3 class="text-lg font-semibold">PneuNet</h3>
-    <h4 class="text-sm font-medium text-purple-300">Pneumonia Prediction Model</h4>
-    
-    <!-- Image Section -->
-    <div class="mt-3 mb-4">
-        <img src="assests/Screenshot 2025-12-17 174821.png" 
-             alt="PneuNet Preview" 
-             class="w-full h-auto object-contain rounded-lg border border-purple-500/30 hidden sm:block" />
+    <div class="card group flex flex-col justify-between p-5 rounded-2xl border-4 border-[#392e4e] bg-[#060010]
+                transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_#a855f7]">
+      <div>
+        <h3 class="text-lg font-semibold">ASL Recognition System</h3>
+        <h4 class="text-sm font-medium text-purple-300">
+          Deep Learning & Computer Vision
+        </h4>
+        <p class="text-sm leading-relaxed opacity-90 mt-2 line-clamp-3">
+          Developed a deep learning-based system to recognize American Sign Language gestures in real-time, enhancing accessibility for the hearing impaired.
+        </p>
       </div>
+      <div class="flex gap-2 justify-center sm:justify-end pt-4">
+        <button
+          class="read-more-btn"
+          data-title="ASL Recognition System"
+          data-subtitle="Deep Learning & Computer Vision"
+          data-description="Developed a deep learning-based system to recognize American Sign Language gestures in real-time, enhancing accessibility for the hearing impaired."
+        >
+          Read More
+        </button>
+        <a
+          href="https://github.com/Neon01602/ASL-Recognition-System"
+          target="_blank"
+          class="px-3 py-2 text-xs font-semibold rounded-lg bg-purple-600 hover:bg-purple-700 transition-all"
+        >
+          View Project
+        </a>
+      </div>
+    </div>
+
+    <!-- Small Card -->
+    <div class="card group flex flex-col justify-between p-5 rounded-2xl border-4 border-[#392e4e] bg-[#060010]
+                transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_#a855f7]">
+      <div>
+        <h3 class="text-lg font-semibold">MCRAS</h3>
+        <h4 class="text-sm font-medium text-purple-300">
+          Multi-Channel Recurrent Attention System
+        </h4>
+        <p class="text-sm leading-relaxed opacity-90 mt-2 line-clamp-3">
+          MCRAS is a Python-based deep learning library that fuses recurrent architectures with attention mechanisms.
+        </p>
+      </div>
+      <div class="flex gap-2 justify-center sm:justify-end pt-4">
+        <button
+          class="read-more-btn"
+          data-title="MCRAS"
+          data-subtitle="Multi-Channel Recurrent Attention System"
+          data-description="MCRAS is a Python-based deep learning library that fuses recurrent architectures with attention mechanisms."
+        >
+          Read More
+        </button>
+        <a
+          href="https://github.com/Neon01602/MCRAS"
+          target="_blank"
+          class="px-3 py-2 text-xs font-semibold rounded-lg bg-purple-600 hover:bg-purple-700 transition-all"
+        >
+          View Project
+        </a>
+      </div>
+    </div>
+
+    <!-- Big Card: EduSyncAI -->
+    <div
+      class="card group flex flex-col justify-between lg:col-span-2 p-6 rounded-2xl border-4 border-[#392e4e]
+             bg-gradient-to-br from-[#0b001f] to-[#060010]
+             transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_#a855f7]"
+    >
+      <div>
+        <h3 class="text-lg font-semibold">EduSyncAI</h3>
+        <h4 class="text-sm font-medium text-purple-300">
+          AI-Powered Classroom Assistant
+        </h4>
+        <img
+          src="assests/edusyncai.png"
+          alt="EduSyncAI Preview"
+          class="w-full mt-4 rounded-lg border border-purple-500/30 hidden sm:block"
+        />
+      </div>
+      <div class="flex gap-2 justify-center sm:justify-end pt-4">
+        <button
+          class="read-more-btn"
+          data-title="EduSyncAI"
+          data-subtitle="AI-Powered Classroom Assistant"
+          data-description="Developed an AI-powered platform for automating assignments, grading, and personalized learning recommendations."
+        >
+          Read More
+        </button>
+        <a
+          href="https://github.com/Neon01602/Edusync-AI"
+          target="_blank"
+          class="px-3 py-2 text-xs font-semibold rounded-lg bg-purple-600 hover:bg-purple-700 transition-all"
+        >
+          View Project
+        </a>
+      </div>
+    </div>
+
+    <!-- Big Card: PneuNet -->
+    <div
+      class="card group flex flex-col justify-between lg:col-span-2 p-6 rounded-2xl border-4 border-[#392e4e]
+             bg-gradient-to-br from-[#0b001f] to-[#060010]
+             transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_#a855f7]"
+    >
+      <div>
+        <h3 class="text-lg font-semibold">PneuNet</h3>
+        <h4 class="text-sm font-medium text-purple-300">
+          Pneumonia Prediction Model
+        </h4>
+        <img
+          src="assests/Screenshot 2025-12-17 174821.png"
+          alt="PneuNet Preview"
+          class="w-full mt-4 rounded-lg border border-purple-500/30 hidden sm:block"
+        />
+      </div>
+      <div class="flex gap-2 justify-center sm:justify-end pt-4">
+        <button
+          class="read-more-btn"
+          data-title="PneuNet"
+          data-subtitle="Pneumonia Prediction Model"
+          data-description="A Python deep learning project that trains and evaluates a neural network for predicting pneumonia."
+        >
+          Read More
+        </button>
+        <a
+          href="https://github.com/Neon01602/PneuNet-Pred-Model"
+          target="_blank"
+          class="px-3 py-2 text-xs font-semibold rounded-lg bg-purple-600 hover:bg-purple-700 transition-all"
+        >
+          View Project
+        </a>
+      </div>
+    </div>
 
   </div>
-  
-  
-  <div class="flex gap-2 justify-end pb-1 -mt-2">
-    <button class="read-more-btn px-3 py-1 text-xs"
-            data-title="PneuNet<"
-            data-subtitle="Pneumonia Prediction Model"
-            data-description="A Python deep learning project that trains and evaluates a neural network for predicting pneumonia from chest X-ray images.">
-      Read More
-    </button>
-    <a href="https://github.com/Neon01602/PneuNet-Pred-Model" target="_blank"
-       class="px-3 py-2 text-xs font-semibold rounded-lg bg-purple-600 hover:bg-purple-700 transition-all">
-       View Project
-    </a>
-  </div>
-  
-  
-</div>
 
-
-
-<!-- Small Card -->
-<div class="card group flex flex-col justify-between p-5 rounded-2xl border-4 border-[#392e4e] bg-[#060010] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_#a855f7] relative">
-  <div class="relative z-10 mb-3">
-    <h3 class="text-lg font-semibold">SpeechQL</h3>
-    <h4 class="text-sm font-medium text-purple-300">Spoken Query to SQL Converter</h4>
-  </div>
-  <p class="text-sm leading-relaxed opacity-90 relative z-10 line-clamp-3">
-    SpeechQL is an open-source project that enables users to convert natural language voice queries into executable SQL statements.
-  </p>
-  <div class="flex gap-2 justify-end pt-6">
-    <button class="read-more-btn px-3 py-1 text-xs"
-            data-title="SpeechQL"
-            data-subtitle="Spoken Query to SQL Converter"
-            data-description="SpeechQL is an open-source project that enables users to convert natural language voice queries into executable SQL statements.">
-      Read More
-    </button>
-    <a href="https://github.com/Neon01602/voice2sql" target="_blank"
-       class="px-3 py-2 text-xs font-semibold rounded-lg bg-purple-600 hover:bg-purple-700 transition-all">
-       View Project
-    </a>
-  </div>
-</div>
-
-  
   <!-- Modal -->
-  <div id="modal" class="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-xl hidden z-50">
-    <div class="bg-gradient-to-br from-[#0b001f] to-[#060010] border-4 border-[#392e4e] rounded-2xl max-w-lg w-full p-6 relative">
-      <button id="closeModal" class="absolute top-3 right-3 text-gray-400 hover:text-white text-xl">&times;</button>
+  <div
+    id="modal"
+    class="fixed inset-0 hidden z-50 flex items-center justify-center bg-black/60 backdrop-blur-xl px-4"
+  >
+    <div class="bg-gradient-to-br from-[#0b001f] to-[#060010] border-4 border-[#392e4e]
+                rounded-2xl max-w-lg w-full p-6 relative max-h-[90vh] overflow-y-auto">
+      <button
+        id="closeModal"
+        class="absolute top-3 right-3 text-gray-400 hover:text-white text-xl"
+      >
+        &times;
+      </button>
       <h3 id="modalTitle" class="text-lg font-semibold"></h3>
       <h4 id="modalSubtitle" class="text-sm font-medium text-purple-300 mb-4"></h4>
       <p id="modalDescription" class="text-sm leading-relaxed opacity-90"></p>
     </div>
   </div>
-  
-  <script>
-  document.querySelectorAll('.read-more-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.getElementById('modalTitle').textContent = btn.dataset.title;
-      document.getElementById('modalSubtitle').textContent = btn.dataset.subtitle;
-      document.getElementById('modalDescription').textContent = btn.dataset.description;
-      document.getElementById('modal').classList.remove('hidden');
-    });
-  });
-  
-  document.getElementById('closeModal').addEventListener('click', () => {
-    document.getElementById('modal').classList.add('hidden');
-  });
-  
-  document.getElementById('modal').addEventListener('click', (e) => {
-    if (e.target === document.getElementById('modal')) {
-      document.getElementById('modal').classList.add('hidden');
-    }
-  });
-  </script>
-  
 
-  </div>
+  <!-- Modal Script -->
+  <script>
+    const modal = document.getElementById("modal");
+    const closeModal = document.getElementById("closeModal");
+
+    document.querySelectorAll(".read-more-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.getElementById("modalTitle").textContent = btn.dataset.title;
+        document.getElementById("modalSubtitle").textContent = btn.dataset.subtitle;
+        document.getElementById("modalDescription").textContent = btn.dataset.description;
+        modal.classList.remove("hidden");
+      });
+    });
+
+    closeModal.addEventListener("click", () => {
+      modal.classList.add("hidden");
+    });
+
+    modal.addEventListener("click", e => {
+      if (e.target === modal) modal.classList.add("hidden");
+    });
+  </script>
+
 </section>
+
 </div>
 <script>
   const cards = document.querySelectorAll('.card');
@@ -1553,6 +1568,7 @@ function animate(timestamp) {
 
 </body>
 </html>
+
 
 
 
