@@ -403,7 +403,7 @@
 
 
 <script>
-      const roles = ["Machine Learning Engineer", "Founder - EduSyncAI","AI Developer", "Deep Learning Specialist"];
+      const roles = ["Machine Learning Engineer", "AI Researcher", "Deep Learning Specialist", "SaaS Builder"];
   let roleIndex = 0;
   let charIndex = 0;
   let isDeleting = false;
@@ -540,10 +540,10 @@
               Research &amp; Interests
             </h3>
             <ul class="list-disc list-inside text-gray-300 text-sm space-y-1 font-light">
-              <li><span class="text-purple-300 font-medium">Human-Centered AI</span> and adaptive systems</li>
-              <li><span class="text-pink-300 font-medium">Multimodal Learning</span> with vision + language</li>
-              <li><span class="text-indigo-300 font-medium">Cognitive Modeling</span> and decision frameworks</li>
-              <li><span class="text-blue-400 font-medium">AI for Education</span> and intelligent tutoring systems</li>
+              <li><span class="text-purple-300 font-medium">Hybrid SSM-Transformer</span> architectures (Mamba / Jamba)</li>
+              <li><span class="text-pink-300 font-medium">Low-Resource NLP</span> and ancient language modeling</li>
+              <li><span class="text-indigo-300 font-medium">Multi-Agent Orchestration</span> and agentic AI pipelines</li>
+              <li><span class="text-blue-400 font-medium">AI for Education</span> and intelligent SaaS platforms</li>
             </ul>
           </div>
         </div>
@@ -627,9 +627,10 @@
               like EdTech and healthcare.
             </p>
             <ul class="list-disc list-inside text-sm text-gray-400 space-y-1">
-              <li><span class="text-blue-300">Education:</span> B.Tech CSE (AI Specialization)</li>
-              <li><span class="text-blue-300">Experience:</span> 2+ years hands-on in applied ML + SaaS internships</li>
-              <li><span class="text-blue-300">Vision:</span> Democratize AI for growth, learning, and well-being</li>
+              <li><span class="text-blue-300">Education:</span> B.Tech CSE @ BBD University, Lucknow (Expected 2027)</li>
+              <li><span class="text-blue-300">Experience:</span> 2+ years in ML systems, hybrid deep learning architectures &amp; SaaS platforms</li>
+              <li><span class="text-blue-300">Research:</span> Published at IEEE ADG-2026; submitted to GCCE 2026 (FlexFormer v3)</li>
+              <li><span class="text-blue-300">Vision:</span> Translate cutting-edge AI research into robust, real-world deployed systems</li>
             </ul>
           </div>
         </div>
@@ -840,91 +841,145 @@ function animate(timestamp) {
     class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-7xl mx-auto text-white auto-rows-auto"
   >
 
-    <!-- Small Card -->
-    <div class="card group flex flex-col justify-between p-5 rounded-2xl border-4 border-[#392e4e] bg-[#060010]
-                transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_#a855f7]">
-      <div>
-        <h3 class="text-lg font-semibold">ASL Recognition System</h3>
-        <h4 class="text-sm font-medium text-purple-300">
-          Deep Learning & Computer Vision
-        </h4>
-        <p class="text-sm leading-relaxed opacity-90 mt-2 line-clamp-3">
-          Developed a deep learning-based system to recognize American Sign Language gestures in real-time, enhancing accessibility for the hearing impaired.
-        </p>
-      </div>
-      <div class="flex gap-2 justify-center sm:justify-end pt-4">
-        <button
-          class="read-more-btn"
-          data-title="ASL Recognition System"
-          data-subtitle="Deep Learning & Computer Vision"
-          data-description="Developed a deep learning-based system to recognize American Sign Language gestures in real-time, enhancing accessibility for the hearing impaired."
-        >
-          Read More
-        </button>
-        <a
-          href="https://github.com/Neon01602/ASL-Recognition-System"
-          target="_blank"
-          class="px-3 py-2 text-xs font-semibold rounded-lg bg-purple-600 hover:bg-purple-700 transition-all"
-        >
-          View Project
-        </a>
-      </div>
-    </div>
-
-    <!-- Small Card -->
-    <div class="card group flex flex-col justify-between p-5 rounded-2xl border-4 border-[#392e4e] bg-[#060010]
-                transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_#a855f7]">
-      <div>
-        <h3 class="text-lg font-semibold">MCRAS</h3>
-        <h4 class="text-sm font-medium text-purple-300">
-          Multi-Channel Recurrent Attention System
-        </h4>
-        <p class="text-sm leading-relaxed opacity-90 mt-2 line-clamp-3">
-          MCRAS is a Python-based deep learning library that fuses recurrent architectures with attention mechanisms.
-        </p>
-      </div>
-      <div class="flex gap-2 justify-center sm:justify-end pt-4">
-        <button
-          class="read-more-btn"
-          data-title="MCRAS"
-          data-subtitle="Multi-Channel Recurrent Attention System"
-          data-description="MCRAS is a Python-based deep learning library that fuses recurrent architectures with attention mechanisms."
-        >
-          Read More
-        </button>
-        <a
-          href="https://github.com/Neon01602/MCRAS"
-          target="_blank"
-          class="px-3 py-2 text-xs font-semibold rounded-lg bg-purple-600 hover:bg-purple-700 transition-all"
-        >
-          View Project
-        </a>
-      </div>
-    </div>
-
-    <!-- Big Card: EduSyncAI -->
+    <!-- Big Card: BidForge -->
     <div
       class="card group flex flex-col justify-between lg:col-span-2 p-6 rounded-2xl border-4 border-[#392e4e]
              bg-gradient-to-br from-[#0b001f] to-[#060010]
              transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_#a855f7]"
     >
       <div>
-        <h3 class="text-lg font-semibold">EduSyncAI</h3>
+        <h3 class="text-lg font-semibold">BidForge</h3>
+        <h4 class="text-sm font-medium text-purple-300">
+          Real-Time Competitive Auction Platform
+        </h4>
+        <p class="text-sm leading-relaxed opacity-90 mt-2 line-clamp-4">
+          Atomic Firebase Firestore transaction layer eliminating double-spend race conditions. Dual-interface (Live Arena + Admin Control Room) with React 19, TypeScript 5.8, Vite 6, and LLM API for AI-assisted bid-strategy suggestions.
+        </p>
+        <div class="flex flex-wrap gap-1 mt-3">
+          <span class="text-xs bg-purple-900/50 border border-purple-700/50 px-2 py-0.5 rounded-full">React 19</span>
+          <span class="text-xs bg-purple-900/50 border border-purple-700/50 px-2 py-0.5 rounded-full">TypeScript</span>
+          <span class="text-xs bg-purple-900/50 border border-purple-700/50 px-2 py-0.5 rounded-full">Firebase</span>
+          <span class="text-xs bg-purple-900/50 border border-purple-700/50 px-2 py-0.5 rounded-full">LLM API</span>
+        </div>
+      </div>
+      <div class="flex gap-2 justify-center sm:justify-end pt-4">
+        <button
+          class="read-more-btn"
+          data-title="BidForge"
+          data-subtitle="Real-Time Competitive Auction Platform"
+          data-description="Designed a Firebase Firestore transaction layer with role-based security rules, eliminating race conditions entirely. Built a dual-interface system (Live Arena + Admin Control Room) using React 19, TypeScript 5.8, and Vite 6 with real-time Firestore subscriptions. Integrated LLM API for AI-assisted bid-strategy suggestions, anti-spam engine (auto-flag on 3 bids/10s), 4-panel live canvas bid analytics dashboard, and atomic credit-lock/unlock flow. Zero double-spend incidents in live testing. Stack: React 19, TypeScript, Firebase Firestore, Vite 6, Tailwind CSS, LLM API, Vercel."
+        >
+          Read More
+        </button>
+        <a
+          href="https://github.com/Neon01602"
+          target="_blank"
+          class="px-3 py-2 text-xs font-semibold rounded-lg bg-purple-600 hover:bg-purple-700 transition-all"
+        >
+          View Project
+        </a>
+      </div>
+    </div>
+
+    <!-- Big Card: FounderOS -->
+    <div
+      class="card group flex flex-col justify-between lg:col-span-2 p-6 rounded-2xl border-4 border-[#392e4e]
+             bg-gradient-to-br from-[#0b001f] to-[#060010]
+             transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_#a855f7]"
+    >
+      <div>
+        <h3 class="text-lg font-semibold">FounderOS</h3>
+        <h4 class="text-sm font-medium text-purple-300">
+          Multi-Agent AI Startup Analyzer
+        </h4>
+        <p class="text-sm leading-relaxed opacity-90 mt-2 line-clamp-4">
+          Sequential multi-agent pipeline (Strategist → User Research → Product) where each agent builds on prior output. Structured JSON contracts between agents for reliable downstream parsing. Zero hallucinated schema breaks in testing.
+        </p>
+        <div class="flex flex-wrap gap-1 mt-3">
+          <span class="text-xs bg-purple-900/50 border border-purple-700/50 px-2 py-0.5 rounded-full">Python</span>
+          <span class="text-xs bg-purple-900/50 border border-purple-700/50 px-2 py-0.5 rounded-full">FastAPI</span>
+          <span class="text-xs bg-purple-900/50 border border-purple-700/50 px-2 py-0.5 rounded-full">DeepSeek V3</span>
+          <span class="text-xs bg-purple-900/50 border border-purple-700/50 px-2 py-0.5 rounded-full">Vercel</span>
+        </div>
+      </div>
+      <div class="flex gap-2 justify-center sm:justify-end pt-4">
+        <button
+          class="read-more-btn"
+          data-title="FounderOS"
+          data-subtitle="Multi-Agent AI Startup Analyzer"
+          data-description="Engineered a session-scoped orchestration layer with dedicated agents/, orchestrator/, eval/, and schemas/ modules. Enforced structured JSON contracts between agents for reliable downstream parsing. Pipeline runs Strategist, then User Research, then Product agents sequentially, each building on prior output, producing a full startup brief end-to-end. Stack: Python, FastAPI, Vercel Serverless, OpenRouter API, DeepSeek V3, Mangum."
+        >
+          Read More
+        </button>
+        <a
+          href="https://github.com/Neon01602"
+          target="_blank"
+          class="px-3 py-2 text-xs font-semibold rounded-lg bg-purple-600 hover:bg-purple-700 transition-all"
+        >
+          View Project
+        </a>
+      </div>
+    </div>
+
+    <!-- Big Card: FlexFormer v3 -->
+    <div
+      class="card group flex flex-col justify-between lg:col-span-3 p-6 rounded-2xl border-4 border-[#392e4e]
+             bg-gradient-to-br from-[#0b001f] to-[#060010]
+             transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_#a855f7]"
+    >
+      <div>
+        <h3 class="text-lg font-semibold">FlexFormer v3 <span class="text-xs font-normal text-yellow-400 ml-2 border border-yellow-600/50 px-2 py-0.5 rounded-full">IEEE Published</span></h3>
+        <h4 class="text-sm font-medium text-purple-300">
+          Hybrid SSM-Transformer &middot; Low-Resource Ancient Language Modeling
+        </h4>
+        <p class="text-sm leading-relaxed opacity-90 mt-2">
+          Jamba-inspired S-A-S-A hybrid architecture combining Mamba selective-SSM (O(L)) with sparse attention for Akkadian inscriptions. Achieved PPL 1.55, BPC 0.64, 85.6% token accuracy &mdash; outperforming BERT-MLM, GPT-2, Vanilla Transformer, and Transformer-XL baselines at ~15M parameters. Presented at IEEE ADG-2026; submitted to GCCE 2026.
+        </p>
+        <div class="flex flex-wrap gap-1 mt-3">
+          <span class="text-xs bg-purple-900/50 border border-purple-700/50 px-2 py-0.5 rounded-full">PyTorch</span>
+          <span class="text-xs bg-purple-900/50 border border-purple-700/50 px-2 py-0.5 rounded-full">Mamba SSM</span>
+          <span class="text-xs bg-purple-900/50 border border-purple-700/50 px-2 py-0.5 rounded-full">Hugging Face</span>
+          <span class="text-xs bg-purple-900/50 border border-purple-700/50 px-2 py-0.5 rounded-full">SentencePiece</span>
+          <span class="text-xs bg-purple-900/50 border border-purple-700/50 px-2 py-0.5 rounded-full">~15M params</span>
+        </div>
+      </div>
+      <div class="flex gap-2 justify-center sm:justify-end pt-4">
+        <button
+          class="read-more-btn"
+          data-title="FlexFormer v3"
+          data-subtitle="Hybrid SSM-Transformer for Low-Resource Ancient Language Modeling"
+          data-description="Designed a Jamba-inspired S-A-S-A hybrid layer-interleaving architecture combining Mamba selective-SSM with sparse attention, reducing computational complexity while retaining in-context learning. Implemented Bipartite Token Merging (ToMe, r=0.25), hybrid subword-byte embeddings, RoPE positional encoding, and Sparse MoE FFN (Top-2 routing). Achieved PPL 1.55, BPC 0.64, 85.6% token accuracy at ~15M parameters (p&lt;0.05). Presented at IEEE ADG-2026, BBDU. Submitted to GCCE 2026. Framework generalizes to Sumerian, Aramaic, and Elamite."
+        >
+          Read More
+        </button>
+        <a
+          href="https://www.kaggle.com/neo01anderson"
+          target="_blank"
+          class="px-3 py-2 text-xs font-semibold rounded-lg bg-purple-600 hover:bg-purple-700 transition-all"
+        >
+          View on Kaggle
+        </a>
+      </div>
+    </div>
+
+    <!-- Small Card: EduSyncAI -->
+    <div class="card group flex flex-col justify-between p-5 rounded-2xl border-4 border-[#392e4e] bg-[#060010]
+                transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_#a855f7]">
+      <div>
+        <h3 class="text-lg font-semibold">EduSyncAI <span class="text-xs font-normal text-green-400 ml-1 border border-green-600/50 px-1.5 py-0.5 rounded-full">2x 1st Place</span></h3>
         <h4 class="text-sm font-medium text-purple-300">
           AI-Powered Classroom Assistant
         </h4>
-        <img
-          src="assests/edusyncai.png"
-          alt="EduSyncAI Preview"
-          class="w-full mt-4 rounded-lg border border-purple-500/30 hidden sm:block"
-        />
+        <p class="text-sm leading-relaxed opacity-90 mt-2 line-clamp-3">
+          Won 1st Place at Akhil-Jyot 2025 and IEEE-EDGE 2025. AI platform automating assignments, grading, and personalized learning. Aligned with UN SDG 4 (Quality Education).
+        </p>
       </div>
       <div class="flex gap-2 justify-center sm:justify-end pt-4">
         <button
           class="read-more-btn"
           data-title="EduSyncAI"
           data-subtitle="AI-Powered Classroom Assistant"
-          data-description="Developed an AI-powered platform for automating assignments, grading, and personalized learning recommendations."
+          data-description="Won 1st Position at both Akhil-Jyot 2025 (live ideation and development) and IEEE-EDGE 2025 (UN SDG-aligned solution targeting Quality Education, presented to IEEE judges). AI-powered platform for automating assignments, grading, and personalized learning recommendations."
         >
           Read More
         </button>
@@ -938,45 +993,9 @@ function animate(timestamp) {
       </div>
     </div>
 
-    <!-- Big Card: PneuNet -->
-    <div
-      class="card group flex flex-col justify-between lg:col-span-2 p-6 rounded-2xl border-4 border-[#392e4e]
-             bg-gradient-to-br from-[#0b001f] to-[#060010]
-             transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_#a855f7]"
-    >
-      <div>
-        <h3 class="text-lg font-semibold">PneuNet</h3>
-        <h4 class="text-sm font-medium text-purple-300">
-          Pneumonia Prediction Model
-        </h4>
-        <img
-          src="assests/Screenshot 2025-12-17 174821.png"
-          alt="PneuNet Preview"
-          class="w-full mt-4 rounded-lg border border-purple-500/30 hidden sm:block"
-        />
-      </div>
-      <div class="flex gap-2 justify-center sm:justify-end pt-4">
-        <button
-          class="read-more-btn"
-          data-title="PneuNet"
-          data-subtitle="Pneumonia Prediction Model"
-          data-description="A Python deep learning project that trains and evaluates a neural network for predicting pneumonia."
-        >
-          Read More
-        </button>
-        <a
-          href="https://github.com/Neon01602/PneuNet-Pred-Model"
-          target="_blank"
-          class="px-3 py-2 text-xs font-semibold rounded-lg bg-purple-600 hover:bg-purple-700 transition-all"
-        >
-          View Project
-        </a>
-      </div>
-    </div>
-
   </div>
 
-  <!-- Modal -->
+<!-- Modal -->
   <div
     id="modal"
     class="fixed inset-0 hidden z-50 flex items-center justify-center bg-black/60 backdrop-blur-xl px-4"
@@ -1435,6 +1454,26 @@ function animate(timestamp) {
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="Pandas" class="w-12 h-12 sm:w-14 sm:h-14 mb-1 sm:mb-2">
         <span class="text-xs sm:text-sm">Pandas</span>
       </div>
+
+      <div class="flex flex-col items-center text-white font-medium tracking-wide">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" class="w-12 h-12 sm:w-14 sm:h-14 mb-1 sm:mb-2">
+        <span class="text-xs sm:text-sm">TypeScript</span>
+      </div>
+
+      <div class="flex flex-col items-center text-white font-medium tracking-wide">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" alt="FastAPI" class="w-12 h-12 sm:w-14 sm:h-14 mb-1 sm:mb-2">
+        <span class="text-xs sm:text-sm">FastAPI</span>
+      </div>
+
+      <div class="flex flex-col items-center text-white font-medium tracking-wide">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase" class="w-12 h-12 sm:w-14 sm:h-14 mb-1 sm:mb-2">
+        <span class="text-xs sm:text-sm">Firebase</span>
+      </div>
+
+      <div class="flex flex-col items-center text-white font-medium tracking-wide">
+        <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="Hugging Face" class="w-12 h-12 sm:w-14 sm:h-14 mb-1 sm:mb-2">
+        <span class="text-xs sm:text-sm">Hugging Face</span>
+      </div>
     </template>
 
   </section>
@@ -1556,7 +1595,7 @@ function animate(timestamp) {
       </a>
     
       <!-- LinkedIn -->
-      <a href="https://www.linkedin.com/in/ahmad-abdullah-5a93ab2a1" target="_blank"
+      <a href="https://www.linkedin.com/in/ahmad-abdullah-77818738b" target="_blank"
          class="group flex items-center gap-3 text-white transition duration-300">
         <div
           class="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5 backdrop-blur-md border border-white/10 shadow-lg
@@ -1641,66 +1680,7 @@ function animate(timestamp) {
   allow="autoplay">
 </iframe>
 
-<script>
-  // Unmute after first click anywhere
-  document.addEventListener("click", () => {
-    const iframe = document.querySelector("iframe");
-    iframe.src = "https://www.youtube.com/embed/fOR3TbdzAlc?autoplay=1&mute=0&loop=1&playlist=fOR3TbdzAlc";
-  }, { once: true });
-</script>
 
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
